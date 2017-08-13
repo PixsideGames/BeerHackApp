@@ -1,0 +1,209 @@
+.rangeslider,
+.rangeslider__fill {
+  display: block;
+}
+
+.rangeslider {
+  width: 100px;
+  background: #cecece;
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rangeslider--horizontal {
+  height: 20px;
+  width: 100%;
+}
+
+.rangeslider--vertical {
+  width: 5px;
+  min-height: 150px;
+  max-height: 100%;
+  text-align: center;
+}
+
+.rangeslider--disabled {
+
+}
+
+.rangeslider__fill {
+  background: #cecece;
+  position: absolute;
+}
+.rangeslider--horizontal .rangeslider__fill {
+  top: 0;
+  height: 100%;
+}
+.rangeslider--vertical .rangeslider__fill {
+  bottom: 0;
+}
+
+.rangeslider__handle {
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url('../img/slider-handle-1.png');
+  background-repeat: no-repeat;
+}
+.rangeslider__handle:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.rangeslider__handle:active, .rangeslider--active .rangeslider__handle {
+  
+}
+.rangeslider--horizontal .rangeslider__handle {
+  top: -10px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.rangeslider--vertical .rangeslider__handle {
+  left: -22px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .rangeslider__handle {
+  -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+.ibu__handle {
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url('../img/slider-handle-1.png');
+  background-repeat: no-repeat;
+}
+.ibu__handle:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.ibu__handle:active, .rangeslider--active .ibu__handle {
+  
+}
+.rangeslider--horizontal .ibu__handle {
+  top: -10px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.rangeslider--vertical .ibu__handle {
+  left: -22px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .ibu__handle {
+  -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+.srm__handle {
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url('../img/slider-handle-2.png');
+  background-repeat: no-repeat;
+}
+.srm__handle:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.srm__handle:active, .rangeslider--active .srm__handle {
+  
+}
+.rangeslider--horizontal .srm__handle {
+  top: -10px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.rangeslider--vertical .srm__handle {
+  left: -22px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .srm__handle {
+  -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}
+
+.alc__handle {
+  background: transparent;
+  cursor: pointer;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-image: url('../img/slider-handle-3.png');
+  background-repeat: no-repeat;
+}
+.alc__handle:after {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.alc__handle:active, .rangeslider--active .alc__handle {
+  
+}
+.rangeslider--horizontal .alc__handle{
+  top: -10px;
+  touch-action: pan-y;
+  -ms-touch-action: pan-y;
+}
+.rangeslider--vertical .alc__handle {
+  left: -22px;
+  touch-action: pan-x;
+  -ms-touch-action: pan-x;
+}
+
+input[type="range"]:focus + .rangeslider .alc__handle {
+  -moz-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  -webkit-box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+  box-shadow: 0 0 8px rgba(255, 0, 255, 0.9);
+}

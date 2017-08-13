@@ -1,0 +1,1107 @@
+@font-face {
+    font-family: AvenirNextLTPro;
+    src: url(../fonts/AvenirNextLTPro-Regular.otf);
+}
+@font-face {
+    font-family: AvenirBlack;
+    src: url(../fonts/AvenirLTStd-Black.otf);
+}
+@font-face {
+    font-family: AvenirRoman;
+    src: url(../fonts/AvenirLTStd-Roman.otf);
+}
+@font-face {
+    font-family: AvenirBook;
+    src: url(../fonts/AvenirLTStd-Book.otf);
+}
+
+body
+{
+	height:100%;
+    width:100%;
+    background-color:#3f3f3f;
+    background-image: url("../img/login-bg.png");
+    background-size:cover !important;
+    -moz-background-size:cover;
+    -webkit-background-size: cover; 
+    -o-background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center center;
+    background-attachment:fixed;
+}
+
+#start
+{
+	position: absolute;
+	top: -10px;
+}
+
+.establishement-bar
+{
+	width: 100%;
+	top:0;
+	position: fixed;
+	background-color: #fff;
+	color: #1d1d26;
+	padding-bottom: 10px;
+}
+
+.establishement-bar img
+{
+	width: 20px;
+	height: 20px;
+}
+.establishmentLogout
+{
+	text-align: right;
+	padding-top: 25px;
+}
+
+.establishmentLogoutUser
+{
+	text-align: center;
+	float: right;
+	padding-top: 5px;
+	color: #efefef;
+	background-color: #242424;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 10px;
+	margin-top:5px;
+}
+
+.establishmentLogoutUser img
+{
+	width: 20px;
+	height: 20px;
+}
+
+.side-menu
+{
+	width:100%;
+	position: fixed;
+	top: 0;
+	z-index: 25;	
+}
+
+.top-menu
+{
+	background-color: #3f3f3f;
+	color: #fff;
+	padding: 30px;
+}
+
+.top-menu-left
+{
+	text-align: left;
+	margin-left: -5px;
+}
+
+.top-menu-right
+{
+	text-align: center;
+	font-weight: lighter;
+	font-size: 2.1em;	
+	height: 40px;
+}
+
+#check-menu
+{
+	display: none;	
+}
+
+#icon-menu
+{
+	cursor: pointer;
+	-o-transform: rotate(90deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+	-webkit-transform: rotate(90deg); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+    -ms-transform: rotate(90deg); /* IE 9 */	
+	transform: rotate(90deg);
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+	position: absolute;
+	z-index: 26;
+}
+
+#bar-menu
+{
+	background-color: #fff;
+	height: 2048px;
+	width: 300px;
+	position: absolute;
+	left: -300px;
+	top: 0px;
+	z-index: 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+#nav-menu
+{
+	width: 100%;
+	height: 700px;	
+	position: absolute;
+	top: 100px;		
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+#nav-menu a
+{
+	text-decoration: none;
+}
+
+.title-menu
+{
+	padding: 20px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-bottom: 30px;
+	font-weight: bold;	
+}
+
+.top-side-menu
+{
+	position: fixed;
+	top: 0;
+	width: 300px;
+	background-color: #fff;
+	height: 101px;
+	z-index: 50;
+}
+
+.logo-menu
+{
+	width: 100%;
+	position: relative;
+	margin-top: 180px;
+	margin-bottom: 30px;
+	margin-left: 30px;
+}
+
+.logo-menu img
+{
+	width: 160px;
+}
+
+.title-menu span
+{
+	font-size: 2em;
+	font-weight: lighter;
+	color: #474747;
+}
+
+.link-menu
+{
+	background-color: #fff;
+	padding: 20px;
+	padding-bottom: 15px;
+	margin-left:5px;
+	margin-right:5px;
+	font-size: 1em;
+	font-weight: lighter;
+	color: #1d1d26;	
+	border-bottom: 2px solid #f3f3f4;
+}
+
+.link-menu img
+{
+	width: 20px;
+	height: 20px; 
+	margin-right: 30px;
+	margin-bottom: 5px;
+}
+
+.load-screen
+{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	opacity: 0.5;
+	top:0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 100;
+}
+
+.loader {	
+    margin-top: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.login-screen
+{
+	margin-top: 80px;
+	font-family: AvenirNextLTPro;
+}
+
+.login-screen .beerscript
+{
+	margin-top: 30px;
+}
+
+.login-screen .form
+{
+	margin-top: 30px;
+}
+
+input[type="text"], input[type="number"], input[type="password"]
+{
+	color: #c4c4c4;
+	border: 0;
+	border-bottom: 2px solid #585858;
+	background-color: transparent;
+	border-radius: 0;
+	font-size: 1.22em;
+	padding-left: 0;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	outline: none;
+	box-shadow: none;
+	margin-bottom: 20px;
+}
+
+input[type="text"]:hover, input[type="number"]:hover, input[type="password"]:hover
+{
+	outline: none;
+	box-shadow: none;
+}
+
+input[type="password"], input[type="password"]:active, input[type="password"]:hover, input[type="password"]:visited, input[type="password"]:focus
+{
+	outline: none;
+	box-shadow: none;
+}
+
+form
+{
+	outline: none;
+	box-shadow: none;
+}
+
+select:invalid{ color: #c4c4c4; }
+option {color: #000000;}
+
+select
+{
+	color: #999;
+	border: 0;
+	border-bottom: 2px solid #585858;
+	background-color: transparent;
+	border-radius: 0;
+	font-size: 1.22em;
+	padding-left: 0;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	outline: none;
+	box-shadow: none;
+	margin-bottom: 20px;
+	width: 100%;
+	font-weight: none;
+}
+
+select:hover
+{
+	border: 0;
+	background-color: transparent;
+	border-radius: 0;
+	outline: none;
+	box-shadow: none;
+}
+.glyphicon-calendar:before.calendar
+{
+	color: #fff;
+}
+
+.btn.btn-warning.login-button, .btn.btn-warning.new-register-button, .btn.btn-warning.perfil-button
+{
+	height: 3.5em;
+	color: #fff;
+	background: linear-gradient(to right, #f2bb6e, #bc8538);
+	background: -webkit-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:    -moz-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:     -ms-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:      -o-linear-gradient(to right, #f2bb6e, #bc8538);
+	margin: 0;
+	border:0;
+	font-size: 1.5em;
+	border-radius: 50px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.btn.btn-warning.login-button:hover, .btn.btn-warning.new-register-button:hover, .btn.btn-warning.perfil-button:hover
+{
+	outline: none;
+	color: #fff;
+	background: linear-gradient(to right, #dda556, #a26f28);
+	background: -webkit-linear-gradient(to right, #dda556, #a26f28);
+    background:    -moz-linear-gradient(to right, #dda556, #a26f28);
+    background:     -ms-linear-gradient(to right, #dda556, #a26f28);
+    background:      -o-linear-gradient(to right, #dda556, #a26f28);
+}
+
+.btn.btn-default.facebook-button, .btn.btn-default.facebook-button:hover
+{
+	color: #c4c4c4;
+	background-color: transparent;
+	border: 0;
+	outline: none;
+	font-size: 1.2em;
+}
+
+.register
+{
+	color: #919191;
+	font-size: 1em;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+.register a, .register a:hover
+{
+	color: #fff;
+	text-decoration: none;
+	outline: none;
+	border: 0;
+}
+.register-screen{
+	margin-top: 40px;
+	font-family: AvenirNextLTPro;
+}
+
+.register-logo{
+	margin-top: 40px;
+}
+
+.register-form
+{
+	width: 100%;
+}
+
+.welcome-screen
+{
+	margin-top: 80px;	
+	font-family: AvenirNextLTPro;
+}
+
+.welcome-screen h1
+{
+	color: #fff;
+	font-size: 3em;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.welcome-screen p
+{
+	color: #eee;
+	font-size: 1.5em;
+	margin-bottom: 30px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.welcome-screen strong
+{
+	color: #fff;
+	font-weight: bolder;
+}
+
+.beer-categories-screen
+{
+	margin-top: 80px;		
+}
+
+.beer-link
+{
+	padding: 40px 0;
+	background-color: #f8f8f8;
+	border-bottom: 2px solid #ededed;
+}
+
+.beer-link img
+{
+	padding-top: 50px;
+}
+
+.beer-link-title
+{
+	width: 100%;
+	font-family: AvenirBlack;
+	color: #464646;
+	font-size: 2.5em;
+	float: left;
+	line-height: 1em;
+	padding-top: 40px;
+}
+
+.beer-link-subtitle
+{
+	width: 100%;
+	font-family: AvenirRoman;
+	color: #c0c0c0;
+	font-size: 1.5em;
+	float: left;
+}
+
+.beer-screen
+{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: AvenirNextLTPro;
+	z-index: 5;
+}
+
+.beer-bg
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.beer-bg img
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.beer-title
+{
+	position: absolute;
+	width: 100%;
+	background-color: #f8f8f8;
+	padding: 40px 0 30px 15px;
+	z-index: -5;
+}
+
+.beer-title h2
+{
+	width: 100%;
+	font-family: AvenirBlack;
+	color: #464646;
+	font-size: 2.5em;
+	line-height: 0.5em;
+}
+
+.beer-title h3
+{
+	width: 100%;
+	font-family: AvenirRoman;
+	color: #c0c0c0;
+	font-size: 1.5em;
+	line-height: 1.0em;
+}
+
+.beer-description
+{
+	width: 100%;
+	position: absolute;
+	font-family: AvenirNextLTPro;
+	padding: 15px;
+	top: 0;
+}
+
+.beer-description h2
+{
+	font-size: 1.5em;
+}
+
+.beer-topic 
+{
+	font-size: 1.5em;
+}
+
+.beer-topic span
+{
+	font-size: 1.0em;
+	font-weight: bold;
+}
+
+/* Estilo da tela de Hacking */
+.hacking-screen
+{
+	width: 100%;
+	margin-top: 0;
+	padding: 0;
+	float: left;
+	background-color: #fff;
+}
+
+.beerscript-title
+{
+	font-family: AvenirBook;
+}
+
+.beer-hacking
+{
+	background-color: #fff;
+}
+
+.beer-hacking-footer
+{
+	width: 100%;
+	margin: 0;
+	background-color: #f8f8f8;
+	padding-top: 50px;
+	padding-bottom: 20px;
+	text-align: center;
+	float: left;
+}
+
+.beer-hacking-title
+{
+	text-align: center;
+}
+
+.beer-hacking-title img
+{
+	width: 20px;
+	margin-top: -2px;
+}
+
+.beer-hacking-number
+{
+	color: #333333;
+	font-size: 3.25em;
+	font-family: AvenirBlack;
+	letter-spacing: -8px;
+}
+
+.beer-hacking-image
+{	
+	margin-top: 97px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.brew-button
+{
+	margin-top: 15px;
+	margin-bottom: 5px;
+	font-size: 2.5em;
+	text-align: center;
+}
+
+.brew-button img
+{
+	width: 40px;
+}
+
+.beer-result
+{
+	width: 100%;
+	background-color: #f8f8f8;
+	padding: 15px;
+	padding-top: 30px;
+	margin-top: 110px;
+	font-family: AvenirNextLTPro;
+}
+
+.beer-result-main-title
+{
+	margin-bottom: 20px;
+}
+
+.beer-result-main-title span
+{
+	font-family: AvenirBook;
+	font-size: 1.0em;
+}
+
+.beer-result-title
+{
+	color: #464646;
+	font-family: AvenirBlack;
+	font-size: 2.5em;
+	line-height: 1em;
+	margin-top: 10px;
+}
+
+.beer-result-subtitle
+{
+	color: #c0c0c0;
+	font-family: AvenirRoman;
+	font-size: 1.5em;
+}
+
+.beer-result-info
+{
+	text-align: center;
+	margin-top: 20px;
+}
+
+.beer-result-ibu
+{
+	color: #909090;
+	font-family: AvenirBook;
+	font-size: 1.0em;
+}
+.beer-result-ibu-number
+{
+	color: #909090;
+	font-size: 3.25em;
+	font-family: AvenirBlack;
+	letter-spacing: -5px;
+}
+
+.beer-result-graph
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	float:left;
+}
+
+.beer-result-graph img
+{
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.beer-share
+{
+	width: 100%;
+	background-color: #f8f8f8;
+	padding-top: 30px;
+	margin-top: -30px;
+	font-family: AvenirNextLTPro;
+	overflow-x: hidden;
+}
+
+.beer-share-bg
+{
+	width: 100%;
+	position: absolute;
+	z-index: 0;
+	margin: 0;
+}
+
+.share-close
+{
+	position: absolute;
+	padding: 30px;
+	z-index: 30;
+	color: #000;
+	font-weight: bold;
+	font-size: 2em;
+	right: 0;
+}
+
+.beer-share-bg img
+{
+	width: 100%;
+}
+
+.beer-share-cup
+{
+	position: relative;
+	width: 100%;
+	height: auto;
+	z-index: 10;
+}
+.beer-share-cup img
+{
+	text-align: center;
+	margin-right: auto;
+	padding-top: 40px;
+}
+
+.beer-share-footer
+{
+	width: 100%;
+	background-color: #4f4f4f;
+	padding-top: 30px;
+	padding-bottom: 50px;
+	color: #fff;
+	font-family: AvenirBook;
+	margin: 0;
+}
+
+.share-button
+{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.conquest-screen
+{
+	width: 100%;
+	background-color: #4f4f4f;
+	padding: 15px;
+	padding-top: 30px;
+	font-family: AvenirNextLTPro;
+	overflow-x: hidden;
+	margin-top: 80px;
+}
+
+.conquest-title
+{
+	color: #fff;
+	text-align: center;
+	padding: 10px;
+	font-size: 2em;	
+	font-family: AvenirBook;
+}
+
+.conquest-badges#conquestA
+{
+	background-color: #f1cf84;
+	opacity: 0.1;
+}
+
+.conquest-badges#conquestB
+{
+	background-color: #e0ba55;
+	opacity: 0.1;
+}
+
+.conquest-badges#conquestC
+{
+	background-color: #b49550;
+	opacity: 0.1;
+}
+
+.conquest-badges#conquestD
+{
+	background-color: #9e9067;
+	opacity: 0.1;
+}
+
+.conquest-badges
+{
+	color: #000;
+	text-align: center;
+	padding: 30px 10px;	
+	border-radius: 20px;
+	font-size: 1.3em;	
+	font-family: AvenirBlack;
+	box-shadow: 0 5px 5px #3f3f3f;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.conquest-badges span
+{
+	padding: 10px;
+}
+
+.conquest-badges img
+{
+	width: 50px;
+}
+
+.conquest-numbers
+{
+	color: #000;
+	text-align: center;
+	padding: 30px 10px;	
+	border-radius: 20px;
+	font-size: 1.3em;	
+	font-family: AvenirBlack;
+	background-color: #f1cf84;
+	box-shadow: 0 5px 5px #3f3f3f;	
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.conquest-numbers span
+{
+	font-size: 3em;
+}
+
+.hacked-screen
+{
+	width: 100%;
+	background-color: #f8f8f8;
+	padding: 15px;
+	padding-top: 30px;
+	overflow-x: hidden;
+	margin-top: 80px;
+}
+
+.panel-default.beer
+{
+	border: 0;
+}
+
+.panel-heading.beer
+{
+	border: none;
+	border-bottom: 2px solid #ededed;
+	background-color: #f8f8f8;
+	padding: 30px;
+}
+
+.panel-body.beer
+{
+	border: none;
+	background-color: #f8f8f8;
+	padding: 30px;
+}
+
+.hacked-title
+{
+	color: #464646;
+	font-family: AvenirBlack;
+	font-size: 2.5em;
+	line-height: 1em;
+	margin-top: 10px;
+}
+.hacked-subtitle
+{
+	color: #c0c0c0;
+	font-family: AvenirRoman;
+	font-size: 1.5em;
+}
+
+.beerscript-vertical-logo
+{
+	display: block;
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	height:auto;
+	padding: 5px;
+	font-family:AvenirBlack;
+	font-weight:700;
+	color: #fff;
+}
+
+.beerscript-vertical-logo .p1
+{
+	font-size:3.0em;
+	letter-spacing:25px;
+}
+.beerscript-vertical-logo .p2
+{
+	font-size:3.0em;
+	letter-spacing:20px;
+}
+.beerscript-vertical-logo .p3
+{
+	font-size:3.0em;
+	letter-spacing:25px;
+}
+
+.beerscript-logo-small
+{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.beerscript-logo-small span
+{
+	font-family:AvenirBlack;
+	font-size:1.2em;
+	letter-spacing:10px;
+	font-weight:700;	
+}
+
+.beerscript-logo-small-white
+{
+	width: 100%;
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.beerscript-logo-small-white span
+{
+	font-family:AvenirBlack;
+	font-size:1.2em;
+	letter-spacing:10px;
+	font-weight:700;
+	color: #fff;	
+}
+
+.perfil a, .perfil a:hover
+{
+	color: #fff;
+	text-decoration: none;
+	outline: none;
+	border: 0;
+}
+.perfil-screen{
+	margin-top: 0;
+	font-family: AvenirNextLTPro;
+	background-color: #3f3f3f;
+	color: #fff;
+}
+
+.perfil-form
+{
+	width: 100%;
+	margin-top: 110px;
+}
+
+.modal-content.info
+{
+	background-color: #000;
+	box-shadow: none;
+	border: none;
+	color: #fff;
+	font-family: AvenirBook;
+	opacity: 0.6;
+	border-radius: 15px;
+	margin-top: 50%;
+	padding: 10px;
+	padding-bottom: 50px;
+	font-size: 1.5em;
+}
+
+.modal-header.info
+{
+	border: none;
+	color: #fff;
+	font-family: AvenirBook;
+	font-size: 1.5em;
+	opacity: 1;
+}
+.close.info
+{
+	color: #fff;
+	font-family: AvenirBook;
+	font-size: 1,5em;
+	opacity: 1;
+}
+
+.register-list-screen
+{
+	margin-top: 110px;	
+	font-family: AvenirNextLTPro;
+	background-color: #eee;
+	padding: 15px;
+}
+
+.register-form-screen
+{
+	margin-top: 110px;	
+	font-family: AvenirNextLTPro;
+	background-color: #404040;
+	padding: 15px;
+}
+
+.register-form-screen .form-control
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	outline: none;
+	box-shadow: none;
+}
+
+.register-form-screen .form-control:hover
+{
+	outline: none;
+	box-shadow: none;
+}
+
+.table-responsive.table-list-register
+{
+	padding: 15px;
+}
+
+.btn.btn-warning.beer-hack-button
+{
+	width: 230px;
+	height: 2.5em;
+	color: #fff;
+	background: linear-gradient(to right, #f2bb6e, #bc8538);
+	background: -webkit-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:    -moz-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:     -ms-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:      -o-linear-gradient(to right, #f2bb6e, #bc8538);
+	margin-left: auto;
+	margin-right: auto;
+	border:0;
+	font-size: 3em;
+	border-radius: 50px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+
+.btn.btn-warning.beer-hack-button:hover
+{
+	outline: none;
+	box-shadow: none;
+}
+
+.btn.btn-warning.btn-bottle
+{
+	height: 3.5em;
+	color: #fff;
+	background: linear-gradient(to right, #f2bb6e, #bc8538);
+	background: -webkit-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:    -moz-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:     -ms-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:      -o-linear-gradient(to right, #f2bb6e, #bc8538);
+	border:0;
+	font-size: 1.5em;
+	border-radius: 210px;
+	margin-top: 20px;
+	padding: 30px;
+	width: 260px;
+	height: 250px;
+	margin-bottom: 10px;
+}
+
+.btn.btn-warning.btn-bottle:hover
+{
+	outline: none;
+	box-shadow: none;
+}
+
+.btn.btn-warning.btn-send-hack
+{
+	width: 230px;
+	height: 2.5em;
+	color: #fff;
+	background: linear-gradient(to right, #f2bb6e, #bc8538);
+	background: -webkit-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:    -moz-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:     -ms-linear-gradient(to right, #f2bb6e, #bc8538);
+    background:      -o-linear-gradient(to right, #f2bb6e, #bc8538);
+	margin-left: auto;
+	margin-right: auto;
+	border:0;
+	font-size: 3em;
+	border-radius: 50px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.btn.btn-warning.btn-send-hack:hover
+{
+	outline: none;
+	box-shadow: none;
+}
+
+textarea:focus, input:focus{
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+  	box-shadow: none !important;
+}
+
+*:focus {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+  	box-shadow: none !important;
+}
+
+.form-control:focus{
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+  	box-shadow: none !important;
+}

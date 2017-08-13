@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "554548616637",
+    "firebase_url": "https://beerscript-9427c.firebaseio.com",
+    "project_id": "beerscript-9427c",
+    "storage_bucket": "beerscript-9427c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554548616637:android:14c6f87104604afc",
+        "android_client_info": {
+          "package_name": "br.com.cervejariapratinha.beerscript"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554548616637-skdnc5mtk4sbnd67f57krjanq49otgtu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWdlwyStlNZRNl25vcPxFGfWPj_eek3rE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
