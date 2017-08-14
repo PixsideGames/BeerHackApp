@@ -1,11 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.cervejariapratinha.beerscript" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <gap:config-file parent="CFBundleShortVersionString" platform="ios">
-        <string>2000</string>
+<widget id="br.com.cervejariapratinha.beerscript" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+
+    <gap:config-file platform="ios" parent="CFBundleShortVersionString">
+        <string>1000</string>
     </gap:config-file>
-    <gap:config-file parent="NSPhotoLibraryUsageDescription" platform="ios">
+
+    <gap:config-file platform="ios" parent="NSPhotoLibraryUsageDescription">
         <string>Para carregar imagens recebidas</string>
     </gap:config-file>
+
     <name>Beer Hack Lab</name>
     <description>
         Esse é o novo aplicativo da Cervejaria Pratinha. Aqui você tem a chance de brincar de mestre cervejeiro e fazer alguns ajustes nas nossas cervejas de acordo com o seu gosto.
@@ -17,6 +20,8 @@
     <preference name="CrosswalkAnimatable" value="true" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="15" />
+    <preference name="SplashScreenDelay" value="6000" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
     <preference name="orientation" value="portrait" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.1.1" />
     <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1" />
@@ -30,6 +35,7 @@
     <plugin name="cordova-plugin-inappbrowser" source="npm" spec="~1.3.0" />
     <plugin name="cordova-plugin-media" source="npm" spec="~2.2.0" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="~1.2.0" />
+    <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
