@@ -1,0 +1,90 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-firebase": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "1805888189722287",
+            "APP_NAME": "Beerscript",
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "com.darktalker.cordova.screenshot": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "br.com.cervejariapratinha.beerscript"
+        }
+    }
+}
