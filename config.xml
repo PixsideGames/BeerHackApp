@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.cervejariapratinha.beerscript" version="7.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="br.com.cervejariapratinha.beerscript" version="8.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
-        <string>7000</string>
+        <string>8000</string>
     </gap:config-file>
     <gap:config-file parent="NSPhotoLibraryUsageDescription" platform="ios">
         <string>Salvar imagens que poderão ser compartilhadas e utilizadas dentro do aplicativo.</string>
