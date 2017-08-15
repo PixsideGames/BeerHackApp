@@ -27,6 +27,8 @@ $(document).ready(function(){
 	var hackedCont = 0;
 	var brewedCont = 0;
 
+	var devicePlatform = device.platform;
+
 	adjustSizeMenu();	
 
 	//Máscaras
@@ -34,6 +36,27 @@ $(document).ready(function(){
         $("#register-birthday").mask("99/99/9999");
         $("#add-birthday").mask("99/99/9999");
         $("#perfil-birthday").mask("99/99/9999");
+
+    if(devicePlatform == "iOS")
+    {
+    	window.FirebasePlugin.grantPermission();
+    }
+
+    if(devicePlatform == "iOS")
+    {
+    	window.FirebasePlugin.hasPermission(function(data){
+    		getPhoneCode();
+		});
+    }
+    else
+    {
+    	getPhoneCode();
+    }
+
+    getGeolocation();
+
+
+    	
 
 	// Botão Login
 	$(".login-button").click(function(){
@@ -51,17 +74,37 @@ $(document).ready(function(){
 	$(".register-button").click(function()
 	{	
 		showRegisterScreen();
-		getPhoneCode();
-		getGeolocation();
+		if(devicePlatform == "iOS")
+	    {
+	    	window.FirebasePlugin.hasPermission(function(data){	    		
+	    		getPhoneCode();
+			});
+	    }
+	    else
+	    {	    	
+	    	getPhoneCode();
+	    }	
+	    getGeolocation();	
 	});
 
 	// Botão Cadastrar
 	$(".new-register-button").click(function()
 	{
-		if(latitude == "")
-			getGeolocation();
-		if(phoneCode == "")
-			getPhoneCode();
+		if(devicePlatform == "iOS")
+	    {
+	    	window.FirebasePlugin.hasPermission(function(data){	    		
+				if(phoneCode == "")
+					getPhoneCode();
+			});
+	    }
+	    else
+	    {	    	
+			if(phoneCode == "")
+				getPhoneCode();
+	    }	
+
+	    if(latitude == "")
+				getGeolocation();	
 
 		formatBirthday();
 
@@ -71,10 +114,21 @@ $(document).ready(function(){
 
 	//Botão atualizar perfil
 	$(".perfil-button").click(function(){
-		if(latitude == "")
-			getGeolocation();
-		if(phoneCode == "")
-			getPhoneCode();
+		if(devicePlatform == "iOS")
+	    {
+	    	window.FirebasePlugin.hasPermission(function(data){	    		
+				if(phoneCode == "")
+					getPhoneCode();
+			});
+	    }
+	    else
+	    {	    	
+			if(phoneCode == "")
+				getPhoneCode();
+	    }	
+
+	    if(latitude == "")
+				getGeolocation();
 
 		$(".load-screen").show(100);
 		setTimeout(updateUserProfile, 5000);
@@ -146,6 +200,18 @@ $(document).ready(function(){
 		setTimeout(function() 
 		{ 
             sharePhoto("instagram");
+        }, 500);
+	});
+
+	// Botão compartilhar nas redes sociais
+	$(".share-result").click(function(){
+		$(".beer-share-footer").hide();
+		$(".share-close").hide();
+		$(".side-menu").hide();
+
+		setTimeout(function() 
+		{ 
+            sharePhoto("social");
         }, 500);
 	});
 
@@ -1412,7 +1478,7 @@ $(document).ready(function(){
 					}
 					else
 					{
-						errorFieldMessage(json.msg, "Erro");
+						errorFieldMessage(json.msg, "Desculpe");
 						$(".load-screen").hide(100);
 					}
 			},
@@ -2166,7 +2232,7 @@ $(document).ready(function(){
 				else
 				{
 					$(".load-screen").hide(100);	
-					errorFieldMessage(json.msg, "Erro");
+					errorFieldMessage(json.msg, "Desculpe");
 				}
 			},
 			error: function(jqXHR, exception)
@@ -2248,7 +2314,15 @@ $(document).ready(function(){
 					$(".load-screen").show(100);
 					//Fazer login e cadastro no banco 
 		           	setTimeout(fbSave, 5000);
-		           	getPhoneCode();
+		           	if(devicePlatform == "iOS")
+				    {
+				    	window.FirebasePlugin.hasPermission(function(data){ 		
+								getPhoneCode();
+						});
+				    }
+				    else
+		           		getPhoneCode();
+
 		           	getGeolocation();    				 	              		
 		        }   
 		        else
@@ -2301,7 +2375,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-				   	errorFieldMessage(json.msg, "Erro");
+				   	errorFieldMessage(json.msg, "Desculpe!");
 				  	$(".load-screen").hide(100);
 				}
 			},
@@ -2384,7 +2458,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-					errorFieldMessage(json.msg, "Erro");
+					errorFieldMessage(json.msg, "Desculpe!");
 					$(".load-screen").hide(100);
 				}
 			},
@@ -2422,7 +2496,7 @@ $(document).ready(function(){
 				getAddress();
 			}, 
 			function(error){
-				errorFieldMessage(error.message, "Erro");
+				console.log(error, "Erro");
 			},
 			{ enableHighAccuracy: true }
 		);
@@ -2452,10 +2526,10 @@ $(document).ready(function(){
 				phoneCode = token;	
 				localStorage.setItem("token", token);
 				console.log("Codigo do telefone" + token);	
-			}, 
-			function(error) 
+			},
+			function(error)
 			{
-				console.log(error);
+				console.log("Erro ao pegar código" + error);
 			}
 		);        	    	
 	}
@@ -2472,12 +2546,7 @@ $(document).ready(function(){
 			   	phoneCode = token;
 			   	updatePhoneCode(token);
 			}		     
-		}, 
-		function(error) 
-		{
-			console.log("Erro ao atualizar código " + error);
-		}
-		);    	    	
+		});    	    	
 	}
 
 	// Atualiza phonecode no login
@@ -2686,7 +2755,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-					errorFieldMessage(json.msg, "Erro");
+					errorFieldMessage(json.msg, "Desculpe!");
 					$(".load-screen").hide(100);
 				}
 			},
@@ -2718,7 +2787,6 @@ $(document).ready(function(){
 	function sharePhoto(socialmedia) 
 	{
         var imageLink;  
-        var devicePlatform;
 
         navigator.screenshot.save(function(error,res){
             if(error)
@@ -2729,39 +2797,20 @@ $(document).ready(function(){
 				$(".side-menu").show();
             }
             else
-            {
-            	devicePlatform = device.platform;
-            	imageLink = res.filePath;
-
-                //For android
-                if(devicePlatform == "Android")
-                {
-	                if(socialmedia == "facebook")
-	                {	                	
-	                    window.plugins.socialsharing.shareViaFacebook('Publicação via Facebook', 'file://'+imageLink, "https://goo.gl/J4Xjcu", function() {console.log('share ok')}, function(errormsg){errorFieldMessage("Erro ao compartilhar, verifique a internet ou tente mais tarde.", "Falha");});
-	                }
-	                else
-	                {
-	                    window.plugins.socialsharing.shareViaInstagram('Publicação via Instagram', 'file://'+imageLink, function() {console.log('share ok')}, function(errormsg){errorFieldMessage("Erro ao compartilhar, verifique a internet ou tente mais tarde.", "Falha");});
-	                }
-            	}      	
-                //For iOS
-                else if(devicePlatform == "iOS")
-                {
-                	if(socialmedia == "facebook")
-	                {
-	                	window.plugins.socialsharing.shareViaFacebook('Publicação via Facebook',imageLink, "https://goo.gl/J4Xjcu", function() {console.log('share ok')}, function(errormsg){errorFieldMessage("Erro ao compartilhar, verifique a internet ou tente mais tarde.", "Falha");});
-	                }
-	                else
-	                {
-	                	window.plugins.socialsharing.shareViaInstagram('Publicação via Instagram',imageLink, function() {console.log('share ok')}, function(errormsg){errorFieldMessage("Erro ao compartilhar, verifique a internet ou tente mais tarde.", "Falha");});
-	                }
-                	//window.plugins.socialsharing.share(null, null,imageLink, null);
-                }
+            {            	
+            	imageLink = res.filePath;            	           	           	
 
                 $(".beer-share-footer").show();
 				$(".share-close").show();
 				$(".side-menu").show();
+
+				setTimeout(function()
+				{
+				  if(devicePlatform == "Android")
+            		window.plugins.socialsharing.share(null,null,'file://'+imageLink, null);
+            		else if(devicePlatform == "iOS")
+              		window.plugins.socialsharing.share(null,null, imageLink, null);
+				}, 2000); 
             }
         },'png',100,'beerScript');             
     }
@@ -2800,7 +2849,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-					errorFieldMessage(json.msg, "Erro");
+					errorFieldMessage(json.msg, "Ops!");
 					$(".load-screen").hide(100);
 				}
 			},
