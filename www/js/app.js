@@ -27,8 +27,6 @@ $(document).ready(function(){
 	var hackedCont = 0;
 	var brewedCont = 0;
 
-	var devicePlatform = device.platform;
-
 	adjustSizeMenu();	
 
 	//Máscaras
@@ -36,27 +34,9 @@ $(document).ready(function(){
         $("#register-birthday").mask("99/99/9999");
         $("#add-birthday").mask("99/99/9999");
         $("#perfil-birthday").mask("99/99/9999");
-
-    if(devicePlatform == "iOS")
-    {
-    	window.FirebasePlugin.grantPermission();
-    }
-
-    if(devicePlatform == "iOS")
-    {
-    	window.FirebasePlugin.hasPermission(function(data){
-    		getPhoneCode();
-		});
-    }
-    else
-    {
-    	getPhoneCode();
-    }
-
-    getGeolocation();
-
-
-    	
+   
+   	//Pega a geolocalização
+    getGeolocation();    	
 
 	// Botão Login
 	$(".login-button").click(function(){
@@ -74,37 +54,20 @@ $(document).ready(function(){
 	$(".register-button").click(function()
 	{	
 		showRegisterScreen();
-		if(devicePlatform == "iOS")
-	    {
-	    	window.FirebasePlugin.hasPermission(function(data){	    		
-	    		getPhoneCode();
-			});
-	    }
-	    else
-	    {	    	
-	    	getPhoneCode();
-	    }	
+		
+	    getPhoneCode();	    	
 	    getGeolocation();	
 	});
 
 	// Botão Cadastrar
 	$(".new-register-button").click(function()
 	{
-		if(devicePlatform == "iOS")
-	    {
-	    	window.FirebasePlugin.hasPermission(function(data){	    		
-				if(phoneCode == "")
-					getPhoneCode();
-			});
-	    }
-	    else
-	    {	    	
-			if(phoneCode == "")
-				getPhoneCode();
-	    }	
+		
+		if(phoneCode == "")
+			getPhoneCode();	    	
 
 	    if(latitude == "")
-				getGeolocation();	
+			getGeolocation();	
 
 		formatBirthday();
 
@@ -114,21 +77,12 @@ $(document).ready(function(){
 
 	//Botão atualizar perfil
 	$(".perfil-button").click(function(){
-		if(devicePlatform == "iOS")
-	    {
-	    	window.FirebasePlugin.hasPermission(function(data){	    		
-				if(phoneCode == "")
-					getPhoneCode();
-			});
-	    }
-	    else
-	    {	    	
-			if(phoneCode == "")
-				getPhoneCode();
-	    }	
+		 	
+		if(phoneCode == "")
+			getPhoneCode();  	
 
 	    if(latitude == "")
-				getGeolocation();
+			getGeolocation();
 
 		$(".load-screen").show(100);
 		setTimeout(updateUserProfile, 5000);
@@ -2314,14 +2268,8 @@ $(document).ready(function(){
 					$(".load-screen").show(100);
 					//Fazer login e cadastro no banco 
 		           	setTimeout(fbSave, 5000);
-		           	if(devicePlatform == "iOS")
-				    {
-				    	window.FirebasePlugin.hasPermission(function(data){ 		
-								getPhoneCode();
-						});
-				    }
-				    else
-		           		getPhoneCode();
+		           	
+		           	getPhoneCode();
 
 		           	getGeolocation();    				 	              		
 		        }   
@@ -2519,6 +2467,8 @@ $(document).ready(function(){
 	// Pega código do telefone para push notifications
 	function getPhoneCode()
 	{
+		window.FirebasePlugin.grantPermission(); 
+
 		window.FirebasePlugin.onTokenRefresh(
 			function(token) 
 			{
@@ -2537,6 +2487,8 @@ $(document).ready(function(){
 	// Pega phonecode no login
 	function getPhoneCodeInLogin()
 	{
+		window.FirebasePlugin.grantPermission(); 
+
 		window.FirebasePlugin.onTokenRefresh(
 		function(token) 
 		{
@@ -2804,12 +2756,14 @@ $(document).ready(function(){
 				$(".share-close").show();
 				$(".side-menu").show();
 
+				var modelPlatform = device.platform;
+
 				setTimeout(function()
 				{
-				  if(devicePlatform == "Android")
-            		window.plugins.socialsharing.share(null,null,'file://'+imageLink, null);
+				  	if(devicePlatform == "Android")
+            			window.plugins.socialsharing.share(null,null,'file://'+imageLink, null);
             		else if(devicePlatform == "iOS")
-              		window.plugins.socialsharing.share(null,null, imageLink, null);
+              			window.plugins.socialsharing.share(null,null, imageLink, null);
 				}, 2000); 
             }
         },'png',100,'beerScript');             
