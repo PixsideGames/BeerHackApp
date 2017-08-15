@@ -35,9 +35,6 @@ $(document).ready(function(){
         $("#add-birthday").mask("99/99/9999");
         $("#perfil-birthday").mask("99/99/9999");
    
-   	//Pega a geolocalização
-    getGeolocation();    	
-
 	// Botão Login
 	$(".login-button").click(function(){
 		login();
@@ -2402,6 +2399,7 @@ $(document).ready(function(){
 					{
 						showWelcomeScreen();
 					}
+
 					$(".load-screen").hide(100);							                        					    
 				}
 				else
@@ -2467,8 +2465,6 @@ $(document).ready(function(){
 	// Pega código do telefone para push notifications
 	function getPhoneCode()
 	{
-		window.FirebasePlugin.grantPermission(); 
-
 		window.FirebasePlugin.onTokenRefresh(
 			function(token) 
 			{
@@ -2487,8 +2483,6 @@ $(document).ready(function(){
 	// Pega phonecode no login
 	function getPhoneCodeInLogin()
 	{
-		window.FirebasePlugin.grantPermission(); 
-
 		window.FirebasePlugin.onTokenRefresh(
 		function(token) 
 		{
