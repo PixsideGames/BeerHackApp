@@ -34,7 +34,7 @@ $(document).ready(function(){
         $("#register-birthday").mask("99/99/9999");
         $("#add-birthday").mask("99/99/9999");
         $("#perfil-birthday").mask("99/99/9999");
-   
+
 	// Botão Login
 	$(".login-button").click(function(){
 		login();
@@ -51,20 +51,17 @@ $(document).ready(function(){
 	$(".register-button").click(function()
 	{	
 		showRegisterScreen();
-		
-	    getPhoneCode();	    	
-	    getGeolocation();	
+		getPhoneCode();
+		getGeolocation();
 	});
 
 	// Botão Cadastrar
 	$(".new-register-button").click(function()
 	{
-		
+		if(latitude == "")
+			getGeolocation();
 		if(phoneCode == "")
-			getPhoneCode();	    	
-
-	    if(latitude == "")
-			getGeolocation();	
+			getPhoneCode();
 
 		formatBirthday();
 
@@ -74,12 +71,10 @@ $(document).ready(function(){
 
 	//Botão atualizar perfil
 	$(".perfil-button").click(function(){
-		 	
-		if(phoneCode == "")
-			getPhoneCode();  	
-
-	    if(latitude == "")
+		if(latitude == "")
 			getGeolocation();
+		if(phoneCode == "")
+			getPhoneCode();
 
 		$(".load-screen").show(100);
 		setTimeout(updateUserProfile, 5000);
@@ -130,31 +125,7 @@ $(document).ready(function(){
 		showRackedScreen();
 	});
 
-	// Botão Compartilhar Facebook
-	$(".share-facebook").click(function(){
-		$(".beer-share-footer").hide();
-		$(".share-close").hide();
-		$(".side-menu").hide();
-
-		setTimeout(function() 
-		{ 
-            sharePhoto("facebook");
-        }, 500);
-	});
-
-	// Botão Compartilhar Instagram
-	$(".share-instagram").click(function(){
-		$(".beer-share-footer").hide();
-		$(".share-close").hide();
-		$(".side-menu").hide();
-
-		setTimeout(function() 
-		{ 
-            sharePhoto("instagram");
-        }, 500);
-	});
-
-	// Botão compartilhar nas redes sociais
+	// Botão Compartilhar
 	$(".share-result").click(function(){
 		$(".beer-share-footer").hide();
 		$(".share-close").hide();
@@ -162,7 +133,7 @@ $(document).ready(function(){
 
 		setTimeout(function() 
 		{ 
-            sharePhoto("social");
+            sharePhoto("socialmedia");
         }, 500);
 	});
 
@@ -1429,7 +1400,7 @@ $(document).ready(function(){
 					}
 					else
 					{
-						errorFieldMessage(json.msg, "Desculpe");
+						errorFieldMessage(json.msg, "Erro");
 						$(".load-screen").hide(100);
 					}
 			},
@@ -2183,7 +2154,7 @@ $(document).ready(function(){
 				else
 				{
 					$(".load-screen").hide(100);	
-					errorFieldMessage(json.msg, "Desculpe");
+					errorFieldMessage(json.msg, "Erro");
 				}
 			},
 			error: function(jqXHR, exception)
@@ -2265,9 +2236,7 @@ $(document).ready(function(){
 					$(".load-screen").show(100);
 					//Fazer login e cadastro no banco 
 		           	setTimeout(fbSave, 5000);
-		           	
 		           	getPhoneCode();
-
 		           	getGeolocation();    				 	              		
 		        }   
 		        else
@@ -2320,7 +2289,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-				   	errorFieldMessage(json.msg, "Desculpe!");
+				   	errorFieldMessage(json.msg, "Erro");
 				  	$(".load-screen").hide(100);
 				}
 			},
@@ -2399,12 +2368,11 @@ $(document).ready(function(){
 					{
 						showWelcomeScreen();
 					}
-
 					$(".load-screen").hide(100);							                        					    
 				}
 				else
 				{
-					errorFieldMessage(json.msg, "Desculpe!");
+					errorFieldMessage(json.msg, "Erro");
 					$(".load-screen").hide(100);
 				}
 			},
@@ -2442,7 +2410,7 @@ $(document).ready(function(){
 				getAddress();
 			}, 
 			function(error){
-				console.log(error, "Erro");
+				errorFieldMessage(error.message, "Erro");
 			},
 			{ enableHighAccuracy: true }
 		);
@@ -2472,10 +2440,10 @@ $(document).ready(function(){
 				phoneCode = token;	
 				localStorage.setItem("token", token);
 				console.log("Codigo do telefone" + token);	
-			},
-			function(error)
+			}, 
+			function(error) 
 			{
-				console.log("Erro ao pegar código" + error);
+				console.log(error);
 			}
 		);        	    	
 	}
@@ -2492,7 +2460,12 @@ $(document).ready(function(){
 			   	phoneCode = token;
 			   	updatePhoneCode(token);
 			}		     
-		});    	    	
+		}, 
+		function(error) 
+		{
+			console.log("Erro ao atualizar código " + error);
+		}
+		);    	    	
 	}
 
 	// Atualiza phonecode no login
@@ -2701,7 +2674,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-					errorFieldMessage(json.msg, "Desculpe!");
+					errorFieldMessage(json.msg, "Erro");
 					$(".load-screen").hide(100);
 				}
 			},
@@ -2733,6 +2706,7 @@ $(document).ready(function(){
 	function sharePhoto(socialmedia) 
 	{
         var imageLink;  
+        var devicePlatform;
 
         navigator.screenshot.save(function(error,res){
             if(error)
@@ -2743,22 +2717,24 @@ $(document).ready(function(){
 				$(".side-menu").show();
             }
             else
-            {            	
-            	imageLink = res.filePath;            	           	           	
+            {
+            	devicePlatform = device.platform;
+            	imageLink = res.filePath;
+
+                //For android
+                if(devicePlatform == "Android")
+                {
+                	window.plugins.socialsharing.share(null, null,'file://'+imageLink, null);              
+            	}      	
+                //For iOS
+                else if(devicePlatform == "iOS")
+                {                	
+                	window.plugins.socialsharing.share(null, null,imageLink, null);
+                }
 
                 $(".beer-share-footer").show();
 				$(".share-close").show();
 				$(".side-menu").show();
-
-				var modelPlatform = device.platform;
-
-				setTimeout(function()
-				{
-				  	if(devicePlatform == "Android")
-            			window.plugins.socialsharing.share(null,null,'file://'+imageLink, null);
-            		else if(devicePlatform == "iOS")
-              			window.plugins.socialsharing.share(null,null, imageLink, null);
-				}, 2000); 
             }
         },'png',100,'beerScript');             
     }
@@ -2797,7 +2773,7 @@ $(document).ready(function(){
 				}
 				else
 				{
-					errorFieldMessage(json.msg, "Ops!");
+					errorFieldMessage(json.msg, "Erro");
 					$(".load-screen").hide(100);
 				}
 			},
