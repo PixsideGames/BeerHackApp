@@ -696,6 +696,7 @@ select:hover
 	font-weight: bold;
 	font-size: 2em;
 	right: 0;
+	top: 60px;
 }
 
 .beer-share-bg img
@@ -706,7 +707,7 @@ select:hover
 .beer-share-cup
 {
 	position: relative;
-	width: 100%;
+	width: 50%;
 	height: auto;
 	z-index: 10;
 }
@@ -732,6 +733,11 @@ select:hover
 {
 	margin-top: 5px;
 	margin-bottom: 5px;
+}
+
+.share-button img
+{
+	width: 20px;
 }
 
 .conquest-screen
@@ -905,7 +911,7 @@ select:hover
 .beerscript-logo-small span
 {
 	font-family:AvenirBlack;
-	font-size:1.2em;
+	font-size:1.0em;
 	letter-spacing:10px;
 	font-weight:700;	
 }

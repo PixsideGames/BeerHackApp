@@ -27,6 +27,9 @@ $(document).ready(function(){
 	var hackedCont = 0;
 	var brewedCont = 0;
 
+	var imageLink;
+	var devicePlatform;
+
 	adjustSizeMenu();	
 
 	//Máscaras
@@ -34,6 +37,11 @@ $(document).ready(function(){
         $("#register-birthday").mask("99/99/9999");
         $("#add-birthday").mask("99/99/9999");
         $("#perfil-birthday").mask("99/99/9999");
+
+    // Lembrar senha
+	$(".forgot-pass").click(function(){
+		forgotPass();
+	});
 
 	// Botão Login
 	$(".login-button").click(function(){
@@ -133,7 +141,7 @@ $(document).ready(function(){
 
 		setTimeout(function() 
 		{ 
-            sharePhoto("socialmedia");
+            sharePhoto();
         }, 500);
 	});
 
@@ -1510,7 +1518,7 @@ $(document).ready(function(){
 				  			//adiciona números aos nomes para usar como id unico
 				  			nameId = nameId+""+cont;
 
-				  			$(".hacked-accordion").append("<div class='panel-heading beer' role='tab' id='"+nameId+"-title'><h4 class='panel-title'><div role='button' data-toggle='collapse' data-parent='#hacked-accordion' data-target='#"+nameId+"-content' aria-expanded='false'><div class='hacked-title'>"+title+" </div><div class='hacked-subtitle'> "+subtitle+" </div></div></h4></div><div id='"+nameId+"-content' class='panel-collapse collapse' role='tabpanel' aria-labelledby='"+nameId+"-title'><div class='panel-body beer'><img src='"+image+"' style='width:100%;margin:0'></div></div>");	  			
+				  			$(".hacked-accordion").append("<div class='panel-heading beer' role='tab' id='"+nameId+"-title'><h4 class='panel-title'><div role='button' data-toggle='collapse' data-parent='#hacked-accordion' data-target='#"+nameId+"-content' aria-expanded='false'><div class='hacked-title'>"+title+" </div><div class='hacked-subtitle'> "+subtitle+" </div></div></h4></div><div id='"+nameId+"-content' class='panel-collapse collapse' role='tabpanel' aria-labelledby='"+nameId+"-title'><div class='panel-body beer' style='margin:0;padding:0'><img src='"+image+"' style='width:100%;margin:0;padding:0'></div></div>");	  			
 				  			cont++;
 				  		});			  			
 					}
@@ -2271,7 +2279,8 @@ $(document).ready(function(){
 				phoneCode: phoneCode,
 				latitude: latitude,
 				longitude: longitude,
-				address: address	
+				address: address,
+				facebookLogin: 1	
 			},            
 			async: false,
 			dataType: "json", 
@@ -2343,6 +2352,7 @@ $(document).ready(function(){
 					phoneCode = json.data.code;
 					level = json.data.level;
 					email = json.data.email;
+					var newPass = json.data.newPass;
 
 					//Usuário Estabelecimento
 					if(level == "2")
@@ -2366,7 +2376,13 @@ $(document).ready(function(){
 					//Usuário Comum ou Administrador
 					else
 					{
-						showWelcomeScreen();
+						if(newPass == "1")
+						{
+							showProfileScreen();
+							errorFieldMessage("Para uma maior segurança, recomendamos que você troque a senha automática.", "Trocar Senha");
+						}
+						else
+							showWelcomeScreen();
 					}
 					$(".load-screen").hide(100);							                        					    
 				}
@@ -2703,11 +2719,8 @@ $(document).ready(function(){
 	}
 
 	// Compartilha foto no facebook e instagram
-	function sharePhoto(socialmedia) 
+	function sharePhoto() 
 	{
-        var imageLink;  
-        var devicePlatform;
-
         navigator.screenshot.save(function(error,res){
             if(error)
             {
@@ -2718,26 +2731,99 @@ $(document).ready(function(){
             }
             else
             {
-            	devicePlatform = device.platform;
             	imageLink = res.filePath;
-
-                //For android
-                if(devicePlatform == "Android")
-                {
-                	window.plugins.socialsharing.share(null, null,'file://'+imageLink, null);              
-            	}      	
-                //For iOS
-                else if(devicePlatform == "iOS")
-                {                	
-                	window.plugins.socialsharing.share(null, null,imageLink, null);
-                }
-
-                $(".beer-share-footer").show();
-				$(".share-close").show();
-				$(".side-menu").show();
+            	devicePlatform = device.platform;                  	
+               	shareSheet();                
             }
         },'png',100,'beerScript');             
     }
+
+    function shareOnFacebook(imageToShare)
+    {    	
+       	window.plugins.socialsharing.shareViaFacebook(
+       		'Beer Hack App - Cervejaria Pratinha', 
+       		imageToShare, 
+       		'http://www.institucional.cervejariapratinha.com.br', 
+       		function() {console.log('share ok')}, 
+       		function(errormsg){console.log(errormsg)}
+    	);       
+    }
+
+    function shareOnInstagram(imageToShare)
+    {    	
+       	window.plugins.socialsharing.shareViaInstagram(
+       		'Beer Hack App - Cervejaria Pratinha', 
+       		imageToShare,
+       		function() {console.log('share ok')}, 
+       		function(errormsg){console.log(errormsg)}
+       	);   
+    }
+
+    var callback = function(buttonIndex) {
+    setTimeout(function() {
+      
+      switch(buttonIndex)
+      {
+      	case 1:
+      		if(devicePlatform == "iOS")
+      			shareOnFacebook(imageLink);
+      		else
+      			shareOnFacebook('file://'+imageLink);
+      	break;
+      	case 2:
+      		if(devicePlatform == "iOS")
+      			shareOnInstagram(imageLink);
+      		else
+      			shareOnInstagram('file://'+imageLink);
+      	break;
+      	case 3:
+      		logoutSheet();
+      	break;
+      	case 4:
+      		deleteSheet();
+      	break;
+      }
+      	$(".beer-share-footer").show();
+		$(".share-close").show();
+		$(".side-menu").show();
+    });
+  };
+
+  function shareSheet() {
+    var options = {
+        androidTheme: window.plugins.actionsheet.ANDROID_THEMES.THEME_DEVICE_DEFAULT_LIGHT, // default is THEME_TRADITIONAL
+        title: 'Onde quer compartilhar?',
+        subtitle: 'Compartilhe com seus amigos!', // supported on iOS only
+        buttonLabels: ['Compartilhar no Facebook', 'Compartilhar no Instagram'],
+        androidEnableCancelButton : true, // default false
+        winphoneEnableCancelButton : true, // default false
+        addCancelButtonWithLabel: 'Cancelar',
+        addDestructiveButtonWithLabel : 'Deletar post',
+        position: [20, 40], // for iPad pass in the [x, y] position of the popover
+        destructiveButtonLast: true // you can choose where the destructive button is shown
+    };
+    // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
+    // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
+    window.plugins.actionsheet.show(options, callback);
+  };
+
+  function deleteSheet() {
+    var options = {
+        'addCancelButtonWithLabel': 'Cancelar',
+        'addDestructiveButtonWithLabel' : 'Delete post'
+    };
+    window.plugins.actionsheet.show(options, callback);
+  };
+
+  function logoutSheet() {
+    var options = {
+        'buttonLabels': ['Log out'],
+        'androidEnableCancelButton' : true, // default false
+        'winphoneEnableCancelButton' : true, // default false
+        'addCancelButtonWithLabel': 'Cancelar'
+    };
+    window.plugins.actionsheet.show(options, callback);
+  };
 
     //Atualiza dados do usuário
     function updateUserProfile()
@@ -2799,6 +2885,67 @@ $(document).ready(function(){
 				$(".load-screen").hide(100);        
 			}
 		});
+    }
+
+    // Trocar senha
+    function forgotPass()
+    {
+    	navigator.notification.prompt(
+    		"Insira seu e-mail de cadastro para enviarmos uma nova senha.",
+	    	function(results)
+	    	{
+    			$(".load-screen").show(100);
+		    	if(results.buttonIndex == 1)
+		    	{
+		    		$.ajax({
+					type: "POST",
+					url: "http://pixside.com.br/beerscript-service/changePass.php", 
+					data: {
+						action: 'ChangePass',					
+						email: results.input1				
+					},            
+					async: false,
+					dataType: "json", 
+					success: function (json) {		            	
+						if(json.result == true)
+						{
+							errorFieldMessage(json.msg, "Sucesso");
+							$(".load-screen").hide(100);					                  					    
+						}
+						else
+						{
+							errorFieldMessage(json.msg, "Erro");
+							$(".load-screen").hide(100);
+						}
+					},
+					error: function(jqXHR, exception)
+					{
+						var msg = '';
+					       if (jqXHR.status === 0) {
+					           msg = 'Verifique sua conexão com a internet.';
+					       } else if (jqXHR.status == 404) {
+					           msg = 'Servidor não encontrado, tente novamente mais tarde. [404]';
+					       } else if (jqXHR.status == 500) {
+					           msg = 'Erro no servidor, tente novamente mais tarde. [500].';
+					       } else if (exception === 'parsererror') {
+					           msg = 'Requested JSON parse failed.';
+					       } else if (exception === 'timeout') {
+					           msg = 'Time out error.';
+					       } else if (exception === 'abort') {
+					           msg = 'Ajax request aborted.';
+					       } else {
+					           msg = 'Uncaught Error.\n' + jqXHR.responseText;
+					       }
+						errorFieldMessage(msg, "Falha");
+						$(".load-screen").hide(100);        
+					}
+				});
+    			}
+    		},
+    	"Trocar Senha",
+    	["Enviar","Cancelar"],
+    	""
+    	);
     }
 
 	// Mensagem Nativa de alerta

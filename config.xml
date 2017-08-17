@@ -1,9 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.cervejariapratinha.beerscript" version="11.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="br.com.cervejariapratinha.beerscript" version="15.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
-        <string>11000</string>
+        <string>15000</string>
     </gap:config-file>
-    
     <name>Beer Hack Lab</name>
     <description>
         Esse é o novo aplicativo da Cervejaria Pratinha. Aqui você tem a chance de brincar de mestre cervejeiro e fazer alguns ajustes nas nossas cervejas de acordo com o seu gosto.
@@ -62,7 +61,16 @@
         <splash height="2048" platform="ios" src="www/res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" />
         <splash height="1024" platform="ios" src="www/res/screen/ios/Default-Portrait~ipad.png" width="768" />
         <splash height="960" platform="ios" src="www/res/screen/ios/Default@2x~iphone.png" width="640" />
-        <splash height="480" platform="ios" src="www/res/screen/ios/Default~iphone.png" width="320" />      
+        <splash height="480" platform="ios" src="www/res/screen/ios/Default~iphone.png" width="320" />
+
+        <!-- add this entry -->
+        <config-file platform="ios" target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>com.apple.social.facebook</string>
+                <string>instagram</string>
+            </array>
+        </config-file>
+
     </platform>
     <platform name="wp8">
         <icon height="99" platform="wp8" src="www/res/icon/wp8/ApplicationIcon.png" width="99" />
@@ -134,4 +142,5 @@
     <plugin name="cordova-plugin-geolocation" spec="~2.4.3">
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="BeerHackApp gostaria de saber sua localização para indicar nossos produtos em estabelecimentos próximos a você." />
     </plugin>
+    <plugin name="cordova-plugin-actionsheet" spec="~2.3.3" />
 </widget>
