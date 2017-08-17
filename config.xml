@@ -3,15 +3,7 @@
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
         <string>11000</string>
     </gap:config-file>
-
-    <config-file parent="NSPhotoLibraryUsageDescription" platform="ios">
-        <string>Salvar imagens que poderão ser compartilhadas e utilizadas dentro do aplicativo.</string>
-    </config-file>
-
-    <config-file parent="NSLocationAlwaysUsageDescription" platform="ios">
-        <string>Geolocalização poderá ser usada para alerta de estabelecimentos próximos.</string>
-    </config-file>
-
+    
     <name>Beer Hack Lab</name>
     <description>
         Esse é o novo aplicativo da Cervejaria Pratinha. Aqui você tem a chance de brincar de mestre cervejeiro e fazer alguns ajustes nas nossas cervejas de acordo com o seu gosto.
