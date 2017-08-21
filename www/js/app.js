@@ -60,16 +60,17 @@ $(document).ready(function(){
 	{	
 		showRegisterScreen();
 		getPhoneCode();
-		getGeolocation();
+		setTimeout(getGeolocation, 5000);
 	});
 
 	// Botão Cadastrar
 	$(".new-register-button").click(function()
 	{
-		if(latitude == "")
-			getGeolocation();
 		if(phoneCode == "")
 			getPhoneCode();
+
+		if(latitude == "")
+			getGeolocation();		
 
 		formatBirthday();
 
@@ -2776,12 +2777,6 @@ $(document).ready(function(){
       		else
       			shareOnInstagram('file://'+imageLink);
       	break;
-      	case 3:
-      		logoutSheet();
-      	break;
-      	case 4:
-      		deleteSheet();
-      	break;
       }
       	$(".beer-share-footer").show();
 		$(".share-close").show();
@@ -2797,31 +2792,11 @@ $(document).ready(function(){
         buttonLabels: ['Compartilhar no Facebook', 'Compartilhar no Instagram'],
         androidEnableCancelButton : true, // default false
         winphoneEnableCancelButton : true, // default false
-        addCancelButtonWithLabel: 'Cancelar',
-        addDestructiveButtonWithLabel : 'Deletar post',
         position: [20, 40], // for iPad pass in the [x, y] position of the popover
         destructiveButtonLast: true // you can choose where the destructive button is shown
     };
     // Depending on the buttonIndex, you can now call shareViaFacebook or shareViaTwitter
     // of the SocialSharing plugin (https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin)
-    window.plugins.actionsheet.show(options, callback);
-  };
-
-  function deleteSheet() {
-    var options = {
-        'addCancelButtonWithLabel': 'Cancelar',
-        'addDestructiveButtonWithLabel' : 'Delete post'
-    };
-    window.plugins.actionsheet.show(options, callback);
-  };
-
-  function logoutSheet() {
-    var options = {
-        'buttonLabels': ['Log out'],
-        'androidEnableCancelButton' : true, // default false
-        'winphoneEnableCancelButton' : true, // default false
-        'addCancelButtonWithLabel': 'Cancelar'
-    };
     window.plugins.actionsheet.show(options, callback);
   };
 

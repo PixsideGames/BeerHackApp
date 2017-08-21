@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="br.com.cervejariapratinha.beerscript" version="15.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="br.com.cervejariapratinha.beerscript" version="16.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <gap:config-file parent="CFBundleShortVersionString" platform="ios">
-        <string>15000</string>
+        <string>16000</string>
     </gap:config-file>
     <name>Beer Hack Lab</name>
     <description>
@@ -62,15 +62,12 @@
         <splash height="1024" platform="ios" src="www/res/screen/ios/Default-Portrait~ipad.png" width="768" />
         <splash height="960" platform="ios" src="www/res/screen/ios/Default@2x~iphone.png" width="640" />
         <splash height="480" platform="ios" src="www/res/screen/ios/Default~iphone.png" width="320" />
-
-        <!-- add this entry -->
-        <config-file platform="ios" target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+        <config-file parent="LSApplicationQueriesSchemes" platform="ios" target="*-Info.plist">
             <array>
                 <string>com.apple.social.facebook</string>
                 <string>instagram</string>
             </array>
         </config-file>
-
     </platform>
     <platform name="wp8">
         <icon height="99" platform="wp8" src="www/res/icon/wp8/ApplicationIcon.png" width="99" />
@@ -132,9 +129,6 @@
     <plugin name="cordova-plugin-vibration" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" spec="~1.2.1" />
     <plugin name="cordova-plugin-x-socialsharing" spec="~5.1.8" />
-    <plugin name="cordova-plugin-firebase" spec="~0.1.21">
-        <variable name="NSLocationAlwaysUsageDescription" value="BeerHackApp gostaria de saber sua localização para indicar nossos produtos em estabelecimentos próximos a você." />
-    </plugin>
     <plugin name="cordova-plugin-camera" spec="~2.4.1">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="BeerHackApp gostaria de acessa suas fotos para pegar screenshots gerados pelo app." />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="BeerHackApp gostaria de acessa suas fotos para pegar screenshots gerados pelo app." />
@@ -143,4 +137,5 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="BeerHackApp gostaria de saber sua localização para indicar nossos produtos em estabelecimentos próximos a você." />
     </plugin>
     <plugin name="cordova-plugin-actionsheet" spec="~2.3.3" />
+    <plugin name="cordova-plugin-firebase" spec="~0.1.23" />
 </widget>
