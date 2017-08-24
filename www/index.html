@@ -42,13 +42,24 @@
 <body>  
 	<a href="javascript:void(0)" name="start" id="start"></a>
 
+	<!-- MAIN SCREEN -->
+	<div class="col-xs-12 col-sm-12 main-screen" hidden>
+		<div class="row main-top">  		
+			<div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
+				<img src="img/logo-black.png" class="img-responsive center-block">
+			</div>   
+		</div> 
+		<div class="row main-footer">  		
+			<div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-3">
+				<img src="img/beers.png" class="img-responsive">
+			</div>   
+		</div> 
+	</div>
+
 	<!-- ESTABLISHMENT BAR -->
 	<div class="container-fluid establishement-bar" hidden>
 		<div class="row">		
-			<div class="col-xs-10 col-sm-10 establishmentName"><h2>Pão de Açucar</h2></div>
-			<div class="col-xs-2 col-sm-2 establishmentLogout">
-				<img src="img/menu-logout-icon.png">
-			</div>		
+			<div class="col-xs-10 col-sm-10 establishmentName"><h2>Pão de Açucar</h2></div>	
 		</div>
 	</div>
 
@@ -60,7 +71,7 @@
 				<label id="icon-menu" for="check-menu"> ||| </label>
 			</div>
 			<div class="col-xs-8 col-sm-10 top-menu-right">
-				<span class="text-center"> Título </span>			
+				<span class="text-center"> Welcome </span>			
 			</div>
 			<div class="col-xs-2 col-sm-1 establishmentLogoutUser" hidden>
 				<span>X</span>
@@ -74,16 +85,16 @@
 						<span> José Virgílio </span>
 					</div>					
 					<a href="javascript:void(0)" id="link-catalog">
-						<div class="link-menu"><img src="img/menu-catalog-icon.png">Catálogo</div>
+						<div class="link-menu"><img src="img/menu-catalog-icon.png">Beers</div>
 					</a>				
 					<a href="javascript:void(0)" id="link-conquest">
-						<div class="link-menu"><img src="img/menu-conquest-icon.png">Conquistas</div>
+						<div class="link-menu"><img src="img/menu-conquest-icon.png">Awards</div>
 					</a>
 					<a href="javascript:void(0)" id="link-hackeds">
-						<div class="link-menu"><img src="img/menu-hack-icon.png">Hackeadas</div>
+						<div class="link-menu"><img src="img/menu-hack-icon.png">Hacked</div>
 					</a>					
 					<a href="javascript:void(0)" id="link-profile">
-						<div class="link-menu"><img src="img/menu-user-icon.png">Perfil</div>
+						<div class="link-menu"><img src="img/menu-user-icon.png">Profile</div>
 					</a>
 					<a href="javascript:void(0)" id="link-logout">
 						<div class="link-menu"><img src="img/menu-logout-icon.png">Logout</div>
@@ -105,82 +116,67 @@
 	<div class="container-fluid login-screen">		
 		<div class="row">  		
 			<div class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-4">
-				<img src="img/logo-white.png" class="center-block img-responsive" alt="logotipo Pratinha beer hack lab">
+				<img src="img/logo-white.png" class="img-responsive center-block" alt="logotipo Pratinha beer hack lab">
 			</div>   
 		</div> 
 		<div class="row beerscript">  		
-			<div class="col-xs-12 col-sm-12">	
-				<div class="beerscript-vertical-logo">
-					<p class="p1">BEER</p>
-					<p class="p2">HACK</p>
-					<p class="p3">APP_</p>
-				</div>			
-			</div>   
-		</div>
+			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3 beerscript-vertical-logo">	
+				<img src="img/logo-v-w.svg" class="img-responsive">
+			</div>			
+		</div>   
 		<div class="row form">
 			<form>
 				<div class="col-sm-12 form-group">
 					<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-						<img src="img/user-icon.png" class="img-responsive">
+						<img src="img/user-icon.png" class="form-icon">
 					</div>
 					<div class="col-xs-10 col-sm-7">  		
-						<input type="text" name="login-user" id="login-user" placeholder="Usuário" class="form-control input-lg">		    			
+						<input type="text" name="login-user" id="login-user" placeholder="User Name" class="form-control">		    			
 					</div> 
 				</div>
 				<div class="col-sm-12 form-group">
 					<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-						<img src="img/pass-icon.png" class="img-responsive">
+						<img src="img/pass-icon.png" class="form-icon">
 					</div>
 					<div class="col-xs-10 col-sm-7">  		
-						<input type="password" name="login-pass" id="login-pass" placeholder="Senha" class="form-control input-lg">		    			
+						<input type="password" name="login-pass" id="login-pass" placeholder="Password" class="form-control">		    			
 					</div> 
-					<!--<div class="col-xs-2 col-sm-2">
-						<img src="img/help-icon.png" class="img-responsive">
-					</div>-->
-				</div>	
-				
-				<div class="col-xs-12 col-sm-12">	
-					<div class="center-block text-center forgot-pass" style="color:white">			
-						<span style="font-size:18px"><img src="img/help-icon.png" style="width:20px; padding-right: 5px; margin-top: -5px"> Esqueci minha senha!</span>
-					</div>
-				</div> 
-				
+					
+				</div>		
 
 				<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-					<input type="button" class="btn btn-warning btn-block login-button" value="Entrar">
-				</div> 	
-				<div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1">
-					<div class="alert alert-danger" id="login-alert" role="alert" hidden></div>
-					<div class="alert alert-success" id="login-success" role="alert" hidden></div>
-				</div>						
+					<input type="button" class="btn btn-warning btn-block login-button" value="Login">
+				</div> 										
 			</form> 
 		</div>	
 
 		<div class="row">
-			<div class="col-xs-12 col-sm-12">				
-				<button class="btn btn-default facebook-button center-block btn-block" style="font-size:20px"><img src="img/facebook-icon.png" style="width:20px; padding-right: 5px;margin-top: -5px"> Login com o Facebook</button>
+			<div class="col-xs-12 col-sm-12">		
+				<button class="btn btn-default facebook-button center-block btn-block" style="font-size:2.5vw;margin-top: 15px"><img src="img/facebook-icon.png" style="width:20px; padding-right: 5px; margin-top: -5px"> Login with Facebook</button>
 			</div> 
+		</div>
+
+		<div class="col-xs-12 col-sm-12">
+		<div class="register center-block text-center ">						
+				<span>Don't have an account?</span> <a href="javascript:void(0)" class="register-button"> Register </a>				
+		</div>
 		</div>
 		
 		<div class="row">
-			<div class="col-xs-12 col-sm-12">	
-				<div class="register">			
-					<span>Ainda não tem uma conta?</span> <a href="javascript:void(0)" class="register-button"> Cadastre-se </a>
+			<div class="col-xs-12 col-sm-12">
+				<div class="center-block text-center forgot-pass" style="color:white">			
+					<span style="font-size:2.5vw;margin-top: 10px"><img src="img/help-icon.png" style="width:20px; padding-right: 5px; margin-top: -5px"> Forgot password!</span>
 				</div>
-			</div> 
-		</div>
+			</div>
+		</div> 	
 	</div>
 
 	<!-- REGISTER SCREEN-->
 	<div class="container-fluid register-screen" hidden>	
 		<div class="row register-logo">  		
-			<div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-3">				
+			<div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2">				
 				<div class="beerscript-vertical-logo">
-					<br />
-					<p class="p1">BEER</p>
-					<p class="p2">HACK</p>
-					<p class="p3">APP_</p>
-					<br /><br />
+					<img src="img/logo-v-w.svg" class="img-responsive center-block">
 				</div>
 			</div>   
 			<div class="form">
@@ -188,58 +184,62 @@
 					<div class="row col-sm-12 register-form"></div>
 					<div class="col-sm-12 form-group">
 						<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-							<img src="img/user-icon.png" class="img-responsive">
+							<img src="img/user-icon.png">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="register-name" id="register-name" placeholder="Nome Completo *" class="form-control input-lg">	    			
+							<input type="text" name="register-name" id="register-name" placeholder="Nome Completo *" class="form-control">	    			
 						</div> 
 					</div>
 					<div class="col-sm-12 form-group">
 						<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-							<img src="img/calendar-icon.png" class="img-responsive">
+							<img src="img/calendar-icon.png">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="register-birthday" id="register-birthday" placeholder="Data de Nascimento *" class="form-control input-lg">		    			
+							<input type="text" name="register-birthday" id="register-birthday" placeholder="Data de Nascimento *" class="form-control">		    			
 						</div> 
 					</div>
 					<div class="col-sm-12 form-group">
 						<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-							<img src="img/mail-icon.png" class="img-responsive">
+							<img src="img/mail-icon.png">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="register-email" id="register-email" placeholder="E-mail *" class="form-control input-lg">		    			
+							<input type="text" name="register-email" id="register-email" placeholder="E-mail *" class="form-control">		    			
 						</div> 					
 					</div>	
 					<div class="col-sm-12 form-group">
 						<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-							<img src="img/user-icon.png" class="img-responsive">
+							<img src="img/user-icon.png">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="register-user" id="register-user" placeholder="Usuário *" class="form-control input-lg">	    			
+							<input type="text" name="register-user" id="register-user" placeholder="Usuário *" class="form-control">	    			
 						</div> 					
 					</div>	
 					<div class="col-sm-12 form-group">
 						<div class="col-xs-2 col-sm-1 col-sm-offset-2">
-							<img src="img/pass-icon.png" class="img-responsive">
+							<img src="img/pass-icon.png">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="password" name="register-pass" id="register-pass" placeholder="Senha *" class="form-control input-lg">    			
+							<input type="password" name="register-pass" id="register-pass" placeholder="Senha *" class="form-control">    			
 						</div> 					
 					</div>
 					<div class="col-sm-12 form-group">
 						<div class="col-xs-2 col-sm-1 col-sm-offset-2">
 
-						</div>
+						</div>	
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="password" name="register-confirmpass" id="register-confirmpass" placeholder="Confirmar Senha *" class="form-control input-lg">							
-						</div>											
-					</div>
+							<input type="password" name="register-confirmpass" id="register-confirmpass" placeholder="Confirmar Senha *" class="form-control">   			
+						</div> 										
+					</div>	
+
+					<div class="col-xs-12 col-sm-12"> 		
+							
+							<small style="color:silver;" class="text-center center-block">Os campos com (*) são obrigatórios.</small>
+					</div> 				
+
 					<div class="col-xs-12 col-sm-8 col-sm-offset-2">
+						<br />
 						<input type="button" class="btn btn-warning btn-block new-register-button" value="Cadastrar">
-					</div> 
-					<div class="col-xs-12 text-center">
-						<small style="color:silver;">Todos os campos com (*) são obrigatórios para validar seu cadastro</small>
-					</div>													
+					</div> 													
 				</form> 
 			</div>
 		</div>	
@@ -250,14 +250,14 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-12">
 				<h1>Olá, <span id="logged_username">José</span></h1>
-				<p>Bem-vindo ao <strong>Beer Hack App</strong>! <br />
+				<p>Bem-vindo ao <strong>Beer Hack App</strong>! <br /><br />
 					Esse é o novo aplicativo da Cervejaria Pratinha. Aqui você tem a chance de brincar de mestre cervejeiro e fazer alguns ajustes nas nossas cervejas de acordo com o seu gosto.</p>
 
 					<p>Prefere uma Pratipa mais lupada? Acha que a Conclave poderia ser um pouquinho mais escura? Ótimo! Basta fazer alguns ajustes e nos enviar.</p>
 
 					<p>O mais legal é que as combinações mais votadas serão produzidas de verdade. Já pensou, ter uma Pratinha feita por você? Então manda bala! 
 					</p>
-					<button class="btn btn-warning btn-bottle center-block"><img src="img/bottle-icon.png"></button>
+					<center><img src="img/bottles.png" class="img-responsive"></center>
 				</div>
 			</div>	
 	</div>
@@ -291,45 +291,7 @@
 					<img src="img/arrow-left-icon.png">
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-12 beer-link link-darkmoon"> 
-				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
-					<span class="beer-link-title">
-						Darkmoon
-					</span>
-					<span class="beer-link-subtitle">
-						Foreing Extra Stout
-					</span>
-				</div>
-				<div class="col-xs-1 col-sm-1">
-					<img src="img/arrow-left-icon.png">
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 beer-link link-pratipa"> 
-				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
-					<span class="beer-link-title">
-						Pratipa
-					</span>
-					<span class="beer-link-subtitle">
-						India Pale Ale
-					</span>
-				</div>
-				<div class="col-xs-1 col-sm-1">
-					<img src="img/arrow-left-icon.png">
-				</div>
-			</div>
-			<div class="col-xs-12 col-sm-12 beer-link link-heyjoe"> 
-				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
-					<span class="beer-link-title">
-						Hey Joe
-					</span>
-					<span class="beer-link-subtitle">
-						India Pale Ale
-					</span>
-				</div>
-				<div class="col-xs-1 col-sm-1">
-					<img src="img/arrow-left-icon.png">
-				</div>
-			</div>
+
 			<div class="col-xs-12 col-sm-12 beer-link link-caprico"> 
 				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
 					<span class="beer-link-title">
@@ -343,6 +305,7 @@
 					<img src="img/arrow-left-icon.png">
 				</div>
 			</div>
+
 			<div class="col-xs-12 col-sm-12 beer-link link-conclave"> 
 				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
 					<span class="beer-link-title">
@@ -356,6 +319,21 @@
 					<img src="img/arrow-left-icon.png">
 				</div>
 			</div>
+
+			<div class="col-xs-12 col-sm-12 beer-link link-darkmoon"> 
+				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
+					<span class="beer-link-title">
+						Darkmoon
+					</span>
+					<span class="beer-link-subtitle">
+						Foreing Extra Stout
+					</span>
+				</div>
+				<div class="col-xs-1 col-sm-1">
+					<img src="img/arrow-left-icon.png">
+				</div>
+			</div>
+
 			<div class="col-xs-12 col-sm-12 beer-link link-garotinho"> 
 				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
 					<span class="beer-link-title">
@@ -369,6 +347,35 @@
 					<img src="img/arrow-left-icon.png">
 				</div>
 			</div>
+			
+			<div class="col-xs-12 col-sm-12 beer-link link-heyjoe"> 
+				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
+					<span class="beer-link-title">
+						Hey Joe
+					</span>
+					<span class="beer-link-subtitle">
+						India Pale Ale
+					</span>
+				</div>
+				<div class="col-xs-1 col-sm-1">
+					<img src="img/arrow-left-icon.png">
+				</div>
+			</div>	
+
+			<div class="col-xs-12 col-sm-12 beer-link link-pratipa"> 
+				<div class="col-xs-9 col-xs-offset-1 col-sm-10 col-sm-offset-1">
+					<span class="beer-link-title">
+						Pratipa
+					</span>
+					<span class="beer-link-subtitle">
+						India Pale Ale
+					</span>
+				</div>
+				<div class="col-xs-1 col-sm-1">
+					<img src="img/arrow-left-icon.png">
+				</div>
+			</div>					
+			
 		</div>
 	</div>
 
@@ -593,7 +600,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="birudo-ibu">17,3</span>
@@ -605,7 +612,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="birudo-srm">3,5</span>
@@ -617,7 +624,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="birudo-alc">5,9</span>
@@ -636,14 +643,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Birudo de <span class="beer-result-username">José</span>
+					Birudo
 				</div>
 				<div class="beer-result-subtitle">
 					Rauchbier
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="birudo-result-image">
@@ -681,9 +694,9 @@
 			<div class="beer-result-graph">
 				<img src="img/graphic-icon.png">
 			</div>
-		</div>
+		</div>		
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-birudo" value="Enviar">
 			</div>
 		</div>
@@ -697,23 +710,19 @@
 		</div>
 		<div class="beer-share-cup">
 			<img src="img/birudo-l4.png" class="img-responsive birudo-beer-share">
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		</div>		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>				
-				<div class="col-xs-12 col-sm-12">
-					<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -731,7 +740,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="caramuru-ibu">18</span>
@@ -743,7 +752,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="caramuru-srm">10</span>
@@ -755,7 +764,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="caramuru-alc">4,2</span>
@@ -774,14 +783,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Caramuru de <span class="beer-result-username">José</span>
+					Caramuru
 				</div>
 				<div class="beer-result-subtitle">
-					Rauchbier
+					Vienna Larger
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="caramuru-result-image">
@@ -821,7 +836,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-caramuru" value="Enviar">
 			</div>
 		</div>
@@ -835,23 +850,19 @@
 		</div>
 		<div class="beer-share-cup">
 			<img src="img/caramuru-l10.png" class="img-responsive caramuru-beer-share">
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		</div>			
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-					<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -869,7 +880,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="darkmoon-ibu">35</span>
@@ -881,7 +892,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="darkmoon-srm">33</span>
@@ -893,7 +904,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="darkmoon-alc">6,25</span>
@@ -912,14 +923,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Darkmoon de <span class="beer-result-username">José</span>
+					Darkmoon
 				</div>
 				<div class="beer-result-subtitle">
 					Foreing Extra Stout
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="darkmoon-result-image">
@@ -959,7 +976,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-darkmoon" value="Enviar">
 			</div>
 		</div>
@@ -974,22 +991,19 @@
 		<div class="beer-share-cup">
 			<img src="img/darkmoon-l33.png" class="img-responsive darkmoon-beer-share">
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-					<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -1007,7 +1021,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="pratipa-ibu">60</span>
@@ -1019,7 +1033,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="pratipa-srm">10</span>
@@ -1031,7 +1045,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="pratipa-alc">6</span>
@@ -1050,14 +1064,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Pratipa de <span class="beer-result-username">José</span>
+					Pratipa
 				</div>
 				<div class="beer-result-subtitle">
 					India Pale Ale
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="pratipa-result-image">
@@ -1097,7 +1117,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-pratipa" value="Enviar">
 			</div>
 		</div>
@@ -1112,22 +1132,19 @@
 		<div class="beer-share-cup">
 			<img src="img/pratipa-l10.png" class="img-responsive pratipa-beer-share">
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-					<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -1145,7 +1162,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="heyjoe-ibu">21,8</span>
@@ -1157,7 +1174,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="heyjoe-srm">5</span>
@@ -1169,7 +1186,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="heyjoe-alc">5</span>
@@ -1188,14 +1205,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Hey Joe de <span class="beer-result-username">José</span>
+					Hey Joe
 				</div>
 				<div class="beer-result-subtitle">
 					India Pale Ale
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="heyjoe-result-image">
@@ -1235,7 +1258,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-heyjoe" value="Enviar">
 			</div>
 		</div>
@@ -1250,22 +1273,19 @@
 		<div class="beer-share-cup">
 			<img src="img/heyjoe-l5.png" class="img-responsive heyjoe-beer-share">
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-				<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -1283,7 +1303,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="caprico-ibu">15</span>
@@ -1295,7 +1315,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="caprico-srm">15</span>
@@ -1307,7 +1327,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="caprico-alc">6,5</span>
@@ -1326,14 +1346,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Capricó de <span class="beer-result-username">José</span>
+					Capricó
 				</div>
 				<div class="beer-result-subtitle">
 					Weizenbock
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="caprico-result-image">
@@ -1373,7 +1399,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-caprico" value="Enviar">
 			</div>
 		</div>
@@ -1390,22 +1416,19 @@
 				<img src="img/caprico-l15.png" class="img-responsive caprico-beer-share">
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-				<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -1423,7 +1446,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="conclave-ibu">21,2</span>
@@ -1435,7 +1458,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="conclave-srm">16</span>
@@ -1447,7 +1470,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="conclave-alc">5,3</span>
@@ -1466,14 +1489,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Conclave de <span class="beer-result-username">José</span>
+					Conclave
 				</div>
 				<div class="beer-result-subtitle">
 					Rauchbier
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="conclave-result-image">
@@ -1513,7 +1542,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-conclave" value="Enviar">
 			</div>
 		</div>
@@ -1528,22 +1557,19 @@
 		<div class="beer-share-cup">
 			<img src="img/conclave-l16.png" class="img-responsive conclave-beer-share">
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-				<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -1561,7 +1587,7 @@
 		<div class="beer-hacking-footer">
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">IBU <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-ibu">IBU <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="garotinho-ibu">20,1</span>
@@ -1573,7 +1599,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">SRM <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-srm">SRM <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="garotinho-srm">13</span>
@@ -1585,7 +1611,7 @@
 
 			<div class="col-xs-4 col-sm-4">
 				<div class="row">
-					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info">ABV <img src="img/help-icon.png"> </span>
+					<span class="beer-hacking-title" data-toggle="modal" data-target="#beer-info-alc">ABV <img src="img/help-icon.png"> </span>
 				</div>
 				<div class="row">
 					<span class="beer-hacking-number" id="garotinho-alc">4,8</span>
@@ -1604,14 +1630,20 @@
 				PRONTO! ESSE É O RESULTADO <br /> DO SEU EXPERIMENTO
 			</span>
 		</div>
+		<div class="row">
+			<div class="col-xs-6 col-xs-offset-3 col-sm-10 col-sm-offset-1 beerscript-logo-small">
+				<img src="img/pratinha-logo.png" class="img-responsive center-block">
+			</div>
+		</div>
 		<div class="col-xs-12 col-sm-12">
 			<div class="col-xs-8 col-sm-9">
 				<div class="beer-result-title">
-					Garotinho de <span class="beer-result-username">José</span>
+					Garotinho
 				</div>
 				<div class="beer-result-subtitle">
 					Märzen Oktoberfest
 				</div>
+				<span class="beer-result-username">Hacked by José</span>
 			</div>
 			<div class="col-xs-4 col-sm-3">
 				<div class="garotinho-result-image">
@@ -1650,8 +1682,9 @@
 				<img src="img/graphic-icon.png">
 			</div>
 		</div>
+		
 		<div class="row">
-			<div class="col-xs-8 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+			<div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
 				<input type="button" class="btn btn-warning btn-lg btn-block btn-send-hack btn-send-garotinho" value="Enviar">
 			</div>
 		</div>
@@ -1666,22 +1699,19 @@
 		<div class="beer-share-cup">
 			<img src="img/garotinho-l13.png" class="img-responsive garotinho-beer-share">
 		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 beerscript-logo-small">
-				<span> BEER HACK APP_ </span>
-			</div>
-		</div>
+		
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beer-share-footer">
-				<div class="col-xs-12 col-sm-12 share-button">
+				<div class="col-xs-6 col-sm-6 share-button share-facebook">
 					<span class="share-result center-block text-center"> 
-						<img src="img/share-icon.png"> Compartilhar
-					</span>
-				</div>
-				<div class="col-xs-12 col-sm-12">
-				<br /><br />
-					<img src="img/beer-hack-logo-white.png" class="img-responsive center-block text-center">
-				</div>
+						<center><img src="img/facebook-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>	
+				<div class="col-xs-6 col-sm-6 share-button share-instagram">
+					<span class="share-result center-block text-center"> 
+						<center><img src="img/instagram-icon.png" class="img-responsive"></center>
+					</span>					
+				</div>		
 			</div>
 		</div>
 	</div>
@@ -1689,24 +1719,24 @@
 	<!-- CONQUEST SCREEN -->
 	<div class="col-xs-12 col-sm-12 conquest-screen" hidden>
 		<div class="col-xs-12 col-sm-12 conquest-title"> 
-			<span>NÍVEL</span>
+			<span>Level</span>
 		</div>
-		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestA"
-		data-toggle="modal" data-target="#conquest1-info"> 
-			<img src="img/badgeA.png"> <span> Apreciador </span>
-		</div>
-		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestB"
-		data-toggle="modal" data-target="#conquest2-info"> 
-			<img src="img/badgeB.png"> <span> Sommelier </span>
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestD"
+		data-toggle="modal" data-target="#conquest4-info"> 
+			<img src="img/badgeD.png"> <span> Master Brewer </span>
 		</div>
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestC"
 		data-toggle="modal" data-target="#conquest3-info"> 
 			<img src="img/badgeC.png"> <span> Home Brewer </span>
 		</div>
-		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestD"
-		data-toggle="modal" data-target="#conquest4-info"> 
-			<img src="img/badgeD.png"> <span> Mestre Cervejeiro </span>
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestB"
+		data-toggle="modal" data-target="#conquest2-info"> 
+			<img src="img/badgeB.png"> <span> Sommelier </span>
 		</div>
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-badges" id="conquestA"
+		data-toggle="modal" data-target="#conquest1-info"> 
+			<img src="img/badgeA.png"> <span> Beginner </span>
+		</div>		
 
 		<div class="col-xs-12 col-sm-10 col-sm-offset-1 conquest-numbers"> 
 			<div class="col-xs-6 col-sm-6">
@@ -1717,7 +1747,7 @@
 					<span id="hacked-beers-number">0</span>
 				</div>
 				<div class="row">
-					<p>CERVEJAS HACKEADAS</p>
+					<p>HACKED BEERS</p>
 				</div>
 			</div>
 			<div class="col-xs-6 col-sm-6">
@@ -1728,14 +1758,14 @@
 					<span id="brewed-beers-number">0</span>
 				</div>
 				<div class="row">
-					<p>CERVEJAS PRODUZIDAS</p>
+					<p>BREWED BEERS</p>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-xs-12 col-sm-12 beerscript-logo-small-white">
-				<span> BEER HACK APP_ </span>
+				<img src="img/logo-h-w.svg" class="img-responsive">
 			</div>
 		</div>
 	</div>
@@ -1760,7 +1790,7 @@
 							<img src="img/user-icon.png" class="img-responsive">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="perfil-name" id="perfil-name" placeholder="Nome Completo" class="form-control input-lg">		    			
+							<input type="text" name="perfil-name" id="perfil-name" placeholder="Full Name" class="form-control input-lg">		    			
 						</div> 
 					</div>
 					<div class="col-sm-12 form-group">
@@ -1768,7 +1798,7 @@
 							<img src="img/calendar-icon.png" class="img-responsive">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="perfil-birthday" id="perfil-birthday" placeholder="Data de Nascimento" class="form-control input-lg">		    			
+							<input type="text" name="perfil-birthday" id="perfil-birthday" placeholder="Birthday" class="form-control input-lg">		    			
 						</div> 
 					</div>
 					<div class="col-sm-12 form-group">
@@ -1776,7 +1806,7 @@
 							<img src="img/mail-icon.png" class="img-responsive">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="perfil-email" id="perfil-email" placeholder="E-mail" class="form-control input-lg">		    			
+							<input type="text" name="perfil-email" id="perfil-email" placeholder="Email" class="form-control input-lg">		    			
 						</div> 					
 					</div>	
 					<div class="col-sm-12 form-group">
@@ -1784,7 +1814,7 @@
 							<img src="img/user-icon.png" class="img-responsive">
 						</div>
 						<div class="col-xs-10 col-sm-7">  		
-							<input type="text" name="perfil-user" id="perfil-user" placeholder="Usuário" class="form-control input-lg">		    			
+							<input type="text" name="perfil-user" id="perfil-user" placeholder="User Name" class="form-control input-lg">		    			
 						</div> 					
 					</div>	
 					<div class="col-sm-12 form-group">
@@ -1792,37 +1822,58 @@
 							<img src="img/pass-icon.png" class="img-responsive">
 						</div>
 						<div class="col-xs-10 col-sm-7"> 
-							<small>Deixe em branco para manter a senha atual</small> 		
-							<input type="password" name="perfil-pass" id="perfil-pass" placeholder="Alterar Senha" class="form-control input-lg">		    			
+							<input type="password" name="perfil-pass" id="perfil-pass" placeholder="Change Password" class="form-control input-lg">		    			
 						</div> 					
 					</div>							
 
 					<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-						<input type="button" class="btn btn-warning btn-block perfil-button" value="Atualizar dados">
+						<input type="button" class="btn btn-warning btn-block perfil-button" value="Update">
 					</div> 													
 				</form> 
 			</div>
 		</div>	
 	</div> 
 
-	<!-- BEER INFO MODAL (UBU, SRM, ALC) -->
-	<div class="modal fade" id="beer-info" tabindex="-1" role="dialog">
+	<!-- BEER INFO MODAL (IBU) -->
+	<div class="modal fade" id="beer-info-ibu" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content info">
 				<div class="modal-header info">
-					<button type="button" class="close info" data-dismiss="modal" aria-label="Close">X</button>				
+					<button type="button" class="close info" data-dismiss="modal" aria-label="Close">X</button>			
 				</div>
 				<div class="modal-body">
 					<p>
-						IBU: É abreviação de International Bitter Units e trata-se de uma medida para averiguar quão amarga é uma cerveja.
+						IBU: É abreviação de International Bitter Units e trata-se de uma medida para averiguar quão amarga é uma cerveja. 
+					</p>
+				</div>				
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
- 
-					</p>
-					<br />
+	<!-- BEER INFO MODAL (SRM) -->
+	<div class="modal fade" id="beer-info-srm" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content info">
+				<div class="modal-header info">
+					<button type="button" class="close info" data-dismiss="modal" aria-label="Close">X</button>			
+				</div>
+				<div class="modal-body">					
 					<p>
-						SRM: Standard Reference Method, que é uma escala usada nos Estados Unidos para determinar a coloração da cerveja. 
-					</p>
-					<br />
+						SRM: Standard Reference Method, que é uma escala usada internacionalmente para determinar a coloração da cerveja. 
+					</p>					
+				</div>				
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<!-- BEER INFO MODAL (ALC) -->
+	<div class="modal fade" id="beer-info-alc" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content info">
+				<div class="modal-header info">
+					<button type="button" class="close info" data-dismiss="modal" aria-label="Close">X</button>			
+				</div>
+				<div class="modal-body">					
 					<p>
 						ABV - Alcohol by Volume, ou álcool por volume. É a medida de álcool na cerveja. 
 					</p>
@@ -1830,6 +1881,7 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
 
 	<!-- APRECIADOR MODAL -->
 	<div class="modal fade" id="conquest1-info" tabindex="-1" role="dialog">

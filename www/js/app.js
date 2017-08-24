@@ -38,6 +38,10 @@ $(document).ready(function(){
         $("#add-birthday").mask("99/99/9999");
         $("#perfil-birthday").mask("99/99/9999");
 
+    $(".beerscript-logo-small").hide();
+
+	$(".brew-button").addClass("disabled");
+
     // Lembrar senha
 	$(".forgot-pass").click(function(){
 		forgotPass();
@@ -60,17 +64,16 @@ $(document).ready(function(){
 	{	
 		showRegisterScreen();
 		getPhoneCode();
-		setTimeout(getGeolocation, 5000);
+		getGeolocation();
 	});
 
 	// Botão Cadastrar
 	$(".new-register-button").click(function()
 	{
+		if(latitude == "")
+			getGeolocation();
 		if(phoneCode == "")
 			getPhoneCode();
-
-		if(latitude == "")
-			getGeolocation();		
 
 		formatBirthday();
 
@@ -87,6 +90,11 @@ $(document).ready(function(){
 
 		$(".load-screen").show(100);
 		setTimeout(updateUserProfile, 5000);
+	});
+
+	$(".welcome-screen").click(function()
+	{
+		showCatalogScreen();
 	});
 
 	// Botão Perfil
@@ -135,15 +143,27 @@ $(document).ready(function(){
 	});
 
 	// Botão Compartilhar
-	$(".share-result").click(function(){
+	$(".share-facebook").click(function(){
 		$(".beer-share-footer").hide();
 		$(".share-close").hide();
 		$(".side-menu").hide();
 
 		setTimeout(function() 
 		{ 
-            sharePhoto();
-        }, 500);
+            sharePhoto("facebook");
+        }, 200);   	
+	});
+
+	// Botão Compartilhar
+	$(".share-instagram").click(function(){
+		$(".beer-share-footer").hide();
+		$(".share-close").hide();
+		$(".side-menu").hide();
+
+		setTimeout(function() 
+		{ 
+            sharePhoto("instagram");
+        }, 200);
 	});
 
 	// Botão Birudo 
@@ -204,6 +224,11 @@ $(document).ready(function(){
 		beerName = "Conclave";
 		beerType = "Rauchbier";
 		takeScreenshot();
+	});
+
+	// Hack Button
+	$(".beer-hack-button").click(function(){
+		$(".brew-button").addClass("disabled");
 	});
 
 	// Botão Hack Birudo
@@ -348,7 +373,12 @@ $(document).ready(function(){
 
 	// Fecha a tela de Compartilhamento
 	$(".share-close").click(function(){
-		showCatalogScreen();
+		showMainScreen();
+
+		setTimeout(function() 
+		{ 
+            $(".top-menu-left").css("color", "#fff");	
+        }, 200);
 	});
 
 	// Abre e fecha menu lateral
@@ -382,7 +412,8 @@ $(document).ready(function(){
 				currentPage == ".caprico-hacking-screen" || currentPage == ".caprico-result-screen" || 
 				currentPage == ".caprico-share-screen" || currentPage == ".darkmoon-hacking-screen" || 
 				currentPage == ".darkmoon-result-screen" ||
-				currentPage == ".darkmoon-share-screen")
+				currentPage == ".darkmoon-share-screen" ||
+				currentPage == ".main-screen")
 				$("#icon-menu").css("color","#fff");
 			else			
 				$("#icon-menu").css("color","#fff");
@@ -426,7 +457,7 @@ $(document).ready(function(){
         	currentPage == ".caprico-hacking-screen" || currentPage == ".caprico-result-screen" ||
 			currentPage == ".caprico-share-screen" || 
         	currentPage == ".darkmoon-hacking-screen" || currentPage == ".darkmoon-result-screen" ||
-			currentPage == ".darkmoon-share-screen")
+			currentPage == ".darkmoon-share-screen" || currentPage == ".main-screen")
         {
         	$(".top-menu").css("color","#fff");
         	$("#icon-menu").css("color","#fff");
@@ -448,6 +479,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#conclave-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -534,10 +566,12 @@ $(document).ready(function(){
 				$(".conclave-result-image img").attr("src","img/conclave-result-l22.png");
 				$(".beer-share-cup img").attr("src","img/conclave-l22.png");
 			}
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
 	});
+	
 
 	// ALC Conclave Slider
     $(".conclave-alc-hacking").rangeslider({
@@ -553,6 +587,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#conclave-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -572,6 +607,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#birudo-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -615,7 +651,8 @@ $(document).ready(function(){
 				$(".birudo-color-hacking").attr("src","img/birudo-l5.png");
 				$(".birudo-result-image img").attr("src","img/birudo-result-l5.png");
 				$(".beer-share-cup img").attr("src","img/birudo-l5.png");
-			}		
+			}	
+			$(".brew-button").removeClass("disabled");	
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -635,6 +672,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#birudo-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -654,6 +692,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#caramuru-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -715,7 +754,8 @@ $(document).ready(function(){
 				$(".caramuru-color-hacking").attr("src","img/caramuru-l16.png");
 				$(".caramuru-result-image img").attr("src","img/caramuru-result-l16.png");
 				$(".beer-share-cup img").attr("src","img/caramuru-l16.png");
-			}					
+			}	
+			$(".brew-button").removeClass("disabled");				
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -735,6 +775,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#caramuru-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -754,6 +795,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#darkmoon-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -839,7 +881,8 @@ $(document).ready(function(){
 				$(".darkmoon-color-hacking").attr("src","img/darkmoon-l40.png");
 				$(".darkmoon-result-image img").attr("src","img/darkmoon-result-l40.png");
 				$(".beer-share-cup img").attr("src","img/darkmoon-l40.png");
-			}								
+			}	
+			$(".brew-button").removeClass("disabled");							
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -859,6 +902,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#darkmoon-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -878,6 +922,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#pratipa-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -939,7 +984,8 @@ $(document).ready(function(){
 				$(".pratipa-color-hacking").attr("src","img/pratipa-l14.png");
 				$(".pratipa-result-image img").attr("src","img/pratipa-result-l14.png");
 				$(".beer-share-cup img").attr("src","img/pratipa-l14.png");
-			}							
+			}			
+			$(".brew-button").removeClass("disabled");				
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -959,6 +1005,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#pratipa-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -978,6 +1025,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#heyjoe-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1027,7 +1075,8 @@ $(document).ready(function(){
 				$(".heyjoe-color-hacking").attr("src","img/heyjoe-l6.png");
 				$(".heyjoe-result-image img").attr("src","img/heyjoe-result-l6.png");
 				$(".beer-share-cup img").attr("src","img/heyjoe-l6.png");
-			}										
+			}			
+			$(".brew-button").removeClass("disabled");							
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1047,6 +1096,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#heyjoe-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1066,6 +1116,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#caprico-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1189,6 +1240,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#caprico-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1208,6 +1260,7 @@ $(document).ready(function(){
     		var newIbu = ibu.replace(".",",");
 			$('#garotinho-ibu').html(newIbu);
 			$('.beer-result-ibu-num').html(newIbu);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1275,7 +1328,8 @@ $(document).ready(function(){
 				$(".garotinho-color-hacking").attr("src","img/garotinho-l14.png");
 				$(".garotinho-result-image img").attr("src","img/garotinho-result-l14.png");
 				$(".beer-share-cup img").attr("src","img/garotinho-l14.png");
-			}												
+			}		
+			$(".brew-button").removeClass("disabled");										
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1295,6 +1349,7 @@ $(document).ready(function(){
     		var newAlc = alc.replace(".",",");
 			$('#garotinho-alc').html(newAlc);
 			$('.beer-result-alc-num').html(newAlc);
+			$(".brew-button").removeClass("disabled");
 	    },
 	    // Callback function
 	    onSlideEnd: function(position, value) {}
@@ -1308,7 +1363,7 @@ $(document).ready(function(){
 		currentPage = ".welcome-screen";
 
 		$("#logged_username").html(userName);
-		$(".beer-result-username").html(userName);
+		$(".beer-result-username").html("Hacked by "+userName);
 		$(".title-menu span").html(userFullName);
 
 		$("body").css({"background-image":"none","background-color":"#3f3f3f"});
@@ -1320,7 +1375,7 @@ $(document).ready(function(){
 		if(establishmentLogged == true || facebookLogged == true)
 		{
 			if(establishmentLogged)
-				$(".establishmentLogoutUser").show();
+			$(".establishmentLogoutUser").show();
 			$("#link-profile").hide();
 			$("#link-register").hide();
 			$("#link-media").hide();
@@ -1330,7 +1385,7 @@ $(document).ready(function(){
 		{
 			if(!establishmentLogged)
 				$(".establishmentLogoutUser").hide();
-			$("#link-profile").show();
+				$("#link-profile").show();
 		}
 
 		getPhoneCodeInLogin(); 
@@ -1401,7 +1456,7 @@ $(document).ready(function(){
 						$(".load-screen").hide(100);
 						$("body").css({"background-color":"#3f3f3f"});
 						$(".top-menu").css({"background-color":"#3f3f3f", "color":"#fff"});
-						$(".top-menu-right span").html("Perfil");
+						$(".top-menu-right span").html("Profile");
 						$(currentPage).hide(200);		
 						$(".perfil-screen").show(200);
 						currentPage = ".perfil-screen";		
@@ -1443,10 +1498,24 @@ $(document).ready(function(){
 		$("body").css("background-color", "#f8f8f8");
 		$(".top-menu").css({"background-color":"#fff", "color":"#000"});
 		$("#check-menu").css("color", "#000");
-		$(".top-menu-right span").html("Catálogo");
+		$(".top-menu-right span").html("Beers");
 		$(currentPage).hide(200);		
 		$(".beer-categories-screen").show(200);
 		currentPage = ".beer-categories-screen";		
+		startPoint();
+	}
+
+	// Mostra a tela de Catálogo
+	function showMainScreen()
+	{
+		$("body").css("background-color", "#f8f8f8");
+		$(".top-menu").css({"background-color":"#333", "color":"#fff"});
+		$("#check-menu").css("color", "#fff");
+		$(".top-menu-right span").html("Home");
+		$(currentPage).hide(200);		
+		$(".main-screen").show(200);
+		currentPage = ".main-screen";
+		$(".top-menu-left").css("color", "#fff");		
 		startPoint();
 	}
 
@@ -1455,7 +1524,7 @@ $(document).ready(function(){
 	{
 		$("body").css("background-color", "#fff");
 		$(".top-menu").css({"background-color":"#fff", "color":"#000"});
-		$(".top-menu-right span").html("Conquistas");
+		$(".top-menu-right span").html("Awards");
 
 		if(hackedCont >=1)
 		{
@@ -1513,13 +1582,14 @@ $(document).ready(function(){
 				  			var title = obj.hacked_beer;				  			
 				  			var subtitle = obj.hacked_beer_type;
 				  			var image = obj.hacked_image;
+				  			var hack_date = obj.hacked_date;
 
 				  			//remove espaços dos nomes
 				  			var nameId = title.replace(/\s/g,'');
 				  			//adiciona números aos nomes para usar como id unico
 				  			nameId = nameId+""+cont;
 
-				  			$(".hacked-accordion").append("<div class='panel-heading beer' role='tab' id='"+nameId+"-title'><h4 class='panel-title'><div role='button' data-toggle='collapse' data-parent='#hacked-accordion' data-target='#"+nameId+"-content' aria-expanded='false'><div class='hacked-title'>"+title+" </div><div class='hacked-subtitle'> "+subtitle+" </div></div></h4></div><div id='"+nameId+"-content' class='panel-collapse collapse' role='tabpanel' aria-labelledby='"+nameId+"-title'><div class='panel-body beer' style='margin:0;padding:0'><img src='"+image+"' style='width:100%;margin:0;padding:0'></div></div>");	  			
+				  			$(".hacked-accordion").append("<div class='panel-heading beer' role='tab' id='"+nameId+"-title'><h4 class='panel-title'><div role='button' data-toggle='collapse' data-parent='#hacked-accordion' data-target='#"+nameId+"-content' aria-expanded='false'><div class='hacked-title'>"+title+"<span> abrir </span></div><div class='hacked-subtitle'> "+subtitle+" <span style='font-size:12px'>("+hack_date+")</span> </div></div></h4></div><div id='"+nameId+"-content' class='panel-collapse collapse' role='tabpanel' aria-labelledby='"+nameId+"-title'><div class='panel-body beer' style='margin:0;padding:0'><br><img src='"+image+"' style='width:100%;margin:0;padding:0'></div></div>");	  			
 				  			cont++;
 				  		});			  			
 					}
@@ -1533,7 +1603,7 @@ $(document).ready(function(){
 
 					$("body").css("background-color", "#f8f8f8");
 					$(".top-menu").css({"background-color":"#fff", "color":"#000"});
-					$(".top-menu-right span").html("Hackeadas");
+					$(".top-menu-right span").html("Hacked");
 					$(currentPage).hide(200);
 					$(".hacked-screen").show(200);
 					currentPage = ".hacked-screen";		
@@ -1580,17 +1650,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".birudo-screen .beer-title").height() + $(".birudo-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".birudo-screen .beer-title").height() + $(".birudo-screen .beer-bg img").height() - 110;
 			$(".birudo-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".birudo-screen .beer-title").height() + $(".birudo-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".birudo-screen .beer-title").height() + $(".birudo-screen .beer-bg img").height() - 250;
 			$(".birudo-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".birudo-screen .beer-title").height() + $(".birudo-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".birudo-screen .beer-title").height() + $(".birudo-screen .beer-bg img").height() - 320;
 			$(".birudo-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1612,17 +1682,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".caramuru-screen .beer-title").height() + $(".caramuru-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".caramuru-screen .beer-title").height() + $(".caramuru-screen .beer-bg img").height() - 110;
 			$(".caramuru-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".caramuru-screen .beer-title").height() + $(".caramuru-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".caramuru-screen .beer-title").height() + $(".caramuru-screen .beer-bg img").height() - 250;
 			$(".caramuru-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".caramuru-screen .beer-title").height() + $(".caramuru-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".caramuru-screen .beer-title").height() + $(".caramuru-screen .beer-bg img").height() - 320;
 			$(".caramuru-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1644,17 +1714,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".darkmoon-screen .beer-title").height() + $(".darkmoon-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".darkmoon-screen .beer-title").height() + $(".darkmoon-screen .beer-bg img").height() - 110;
 			$(".darkmoon-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".darkmoon-screen .beer-title").height() + $(".darkmoon-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".darkmoon-screen .beer-title").height() + $(".darkmoon-screen .beer-bg img").height() - 250;
 			$(".darkmoon-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".darkmoon-screen .beer-title").height() + $(".darkmoon-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".darkmoon-screen .beer-title").height() + $(".darkmoon-screen .beer-bg img").height() - 320;
 			$(".darkmoon-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1676,17 +1746,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".pratipa-screen .beer-title").height() + $(".pratipa-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".pratipa-screen .beer-title").height() + $(".pratipa-screen .beer-bg img").height() - 110;
 			$(".pratipa-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".pratipa-screen .beer-title").height() + $(".pratipa-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".pratipa-screen .beer-title").height() + $(".pratipa-screen .beer-bg img").height() - 250;
 			$(".pratipa-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".pratipa-screen .beer-title").height() + $(".pratipa-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".pratipa-screen .beer-title").height() + $(".pratipa-screen .beer-bg img").height() - 320;
 			$(".pratipa-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1708,17 +1778,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".heyjoe-screen .beer-title").height() + $(".heyjoe-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".heyjoe-screen .beer-title").height() + $(".heyjoe-screen .beer-bg img").height() - 110;
 			$(".heyjoe-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".heyjoe-screen .beer-title").height() + $(".heyjoe-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".heyjoe-screen .beer-title").height() + $(".heyjoe-screen .beer-bg img").height() - 250;
 			$(".heyjoe-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".heyjoe-screen .beer-title").height() + $(".heyjoe-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".heyjoe-screen .beer-title").height() + $(".heyjoe-screen .beer-bg img").height() - 320;
 			$(".heyjoe-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1740,17 +1810,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".caprico-screen .beer-title").height() + $(".caprico-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".caprico-screen .beer-title").height() + $(".caprico-screen .beer-bg img").height() - 110;
 			$(".caprico-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".caprico-screen .beer-title").height() + $(".caprico-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".caprico-screen .beer-title").height() + $(".caprico-screen .beer-bg img").height() - 250;
 			$(".caprico-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".caprico-screen .beer-title").height() + $(".caprico-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".caprico-screen .beer-title").height() + $(".caprico-screen .beer-bg img").height() - 320;
 			$(".caprico-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1772,17 +1842,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".conclave-screen .beer-title").height() + $(".conclave-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".conclave-screen .beer-title").height() + $(".conclave-screen .beer-bg img").height() - 110;
 			$(".conclave-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".conclave-screen .beer-title").height() + $(".conclave-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".conclave-screen .beer-title").height() + $(".conclave-screen .beer-bg img").height() - 250;
 			$(".conclave-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".conclave-screen .beer-title").height() + $(".conclave-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".conclave-screen .beer-title").height() + $(".conclave-screen .beer-bg img").height() - 320;
 			$(".conclave-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -1804,17 +1874,17 @@ $(document).ready(function(){
 
 		if(screenSize < 1024)
 		{
-			var titleHeight = $(".garotinho-screen .beer-title").height() + $(".garotinho-screen .beer-bg img").height() - 20;
+			var titleHeight = $(".garotinho-screen .beer-title").height() + $(".garotinho-screen .beer-bg img").height() - 110;
 			$(".garotinho-screen .beer-description").css("top", titleHeight);
 		}
 		else if(screenSize < 1300)
 		{
-			var titleHeight = $(".garotinho-screen .beer-title").height() + $(".garotinho-screen .beer-bg img").height() - 160;
+			var titleHeight = $(".garotinho-screen .beer-title").height() + $(".garotinho-screen .beer-bg img").height() - 250;
 			$(".garotinho-screen .beer-description").css("top", titleHeight);
 		}
 		else
 		{
-			var titleHeight = $(".garotinho-screen .beer-title").height() + $(".garotinho-screen .beer-bg img").height() - 230;
+			var titleHeight = $(".garotinho-screen .beer-title").height() + $(".garotinho-screen .beer-bg img").height() - 320;
 			$(".garotinho-screen .beer-description").css("top", titleHeight);
 		}
 	}
@@ -2377,10 +2447,10 @@ $(document).ready(function(){
 					//Usuário Comum ou Administrador
 					else
 					{
-						if(newPass == "1")
+						if(newPass == 1)
 						{
 							showProfileScreen();
-							errorFieldMessage("Para uma maior segurança, recomendamos que você troque a senha automática.", "Trocar Senha");
+							errorFieldMessage("Para maior segurança, recomendamos que você troque a senha automática.", "Trocar Senha");
 						}
 						else
 							showWelcomeScreen();
@@ -2427,7 +2497,7 @@ $(document).ready(function(){
 				getAddress();
 			}, 
 			function(error){
-				errorFieldMessage(error.message, "Erro");
+				console.log("Erro");
 			},
 			{ enableHighAccuracy: true }
 		);
@@ -2580,6 +2650,7 @@ $(document).ready(function(){
 		$(".beer-result-main-title").hide();
 		$(".btn-send-hack").hide();
 		$(".side-menu").hide();
+		$(".beerscript-logo-small").show();
 		setTimeout(screenShot, 200);
 	}
 
@@ -2596,20 +2667,27 @@ $(document).ready(function(){
 				$(".btn-send-hack").show();
 				$(".side-menu").show();
 				$(".load-screen").hide(100);
+				$(".beerscript-logo-small").hide();
 			}
 			else
 			{
 			    $(".beer-result-main-title").show();
 				$(".btn-send-hack").show();
 				$(".side-menu").show();
+				$(".beerscript-logo-small").hide();
 
 				var fileURL = res.filePath;
+
+				imageLink = fileURL;
+
+				$(".beer-share-bg").hide();
+				$(".beer-share-cup").html("<img src='"+fileURL+"' class='img-responsive'>");
 
 				var win = function (r) {
 				    console.log("Code = " + r.responseCode);
 				    console.log("Response = " + r.response);
 				    console.log("Sent = " + r.bytesSent);
-				    setTimeout(redirectToShareScreen, 2000);
+				    setTimeout(redirectToShareScreen, 500);
 				}
 
 				var fail = function (error) {
@@ -2720,31 +2798,41 @@ $(document).ready(function(){
 	}
 
 	// Compartilha foto no facebook e instagram
-	function sharePhoto() 
+	function sharePhoto(socialMedia) 
 	{
-        navigator.screenshot.save(function(error,res){
-            if(error)
-            {
-            	console.log("Erro ao salvar imagem " + error);                
-                $(".beer-share-footer").show();
-				$(".share-close").show();
-				$(".side-menu").show();
-            }
-            else
-            {
-            	imageLink = res.filePath;
-            	devicePlatform = device.platform;                  	
-               	shareSheet();                
-            }
-        },'png',100,'beerScript');             
+        devicePlatform = device.platform;
+
+        $(".load-screen").show(100);
+        setTimeout(function()
+        {
+	       	if(socialMedia == "facebook")
+	       	{
+	       		if(devicePlatform == "iOS")
+	    			shareOnFacebook(imageLink);
+	    		else
+	    			shareOnFacebook('file://'+imageLink);
+	       	}  
+	       	else if(socialMedia == "instagram")
+	       	{
+	       		if(devicePlatform == "iOS")
+	    			shareOnInstagram(imageLink);
+	    		else
+	    			shareOnInstagram('file://'+imageLink);
+	        }  
+	               	
+	        $(".beer-share-footer").show();
+			$(".share-close").show();
+			$(".side-menu").show(); 
+			$(".load-screen").hide(100);
+		}, 1000);              
     }
 
     function shareOnFacebook(imageToShare)
     {    	
        	window.plugins.socialsharing.shareViaFacebook(
-       		'Beer Hack App - Cervejaria Pratinha', 
+       		null, 
        		imageToShare, 
-       		'http://www.institucional.cervejariapratinha.com.br', 
+       		null, 
        		function() {console.log('share ok')}, 
        		function(errormsg){console.log(errormsg)}
     	);       
@@ -2753,7 +2841,7 @@ $(document).ready(function(){
     function shareOnInstagram(imageToShare)
     {    	
        	window.plugins.socialsharing.shareViaInstagram(
-       		'Beer Hack App - Cervejaria Pratinha', 
+       		null, 
        		imageToShare,
        		function() {console.log('share ok')}, 
        		function(errormsg){console.log(errormsg)}
@@ -2776,7 +2864,7 @@ $(document).ready(function(){
       			shareOnInstagram(imageLink);
       		else
       			shareOnInstagram('file://'+imageLink);
-      	break;
+      	break;      	
       }
       	$(".beer-share-footer").show();
 		$(".share-close").show();
@@ -2792,6 +2880,7 @@ $(document).ready(function(){
         buttonLabels: ['Compartilhar no Facebook', 'Compartilhar no Instagram'],
         androidEnableCancelButton : true, // default false
         winphoneEnableCancelButton : true, // default false
+        addCancelButtonWithLabel: 'Cancelar',
         position: [20, 40], // for iPad pass in the [x, y] position of the popover
         destructiveButtonLast: true // you can choose where the destructive button is shown
     };
@@ -2931,14 +3020,7 @@ $(document).ready(function(){
 
     function adjustSizeMenu()
 	{
-		screenSize = $(window).height();
-		$("#bar-menu").css("height", screenSize);
-
-		if(screenSize >= 1024)
-		{
-			$("#nav-menu").css("height", "auto");
-			$(".logo-menu").css("margin-top", "100%");
-		}
+		
 	}	
 
 	//Rola qualquer página para o começo
