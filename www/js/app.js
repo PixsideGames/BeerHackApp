@@ -1437,7 +1437,7 @@ $(document).ready(function(){
 		$(".load-screen").show(100);
 		$.ajax({
 				type: "POST",
-				url: "http://pixside.com.br/beerscript-service/getUserData.php", 
+				url: "http://institucional.cervejariapratinha.com.br/beerscript-service/getUserData.php", 
 				data: {
 					action: 'GetData',
 					userId: registerId
@@ -1565,7 +1565,7 @@ $(document).ready(function(){
 		$(".load-screen").show(100);
 		$.ajax({
 				type: "POST",
-				url: "http://pixside.com.br/beerscript-service/hackedHistory.php", 
+				url: "http://institucional.cervejariapratinha.com.br/beerscript-service/hackedHistory.php", 
 				data: {
 					action: 'Hackeadas',
 					id: registerId
@@ -1589,7 +1589,7 @@ $(document).ready(function(){
 				  			//adiciona números aos nomes para usar como id unico
 				  			nameId = nameId+""+cont;
 
-				  			$(".hacked-accordion").append("<div class='panel-heading beer' role='tab' id='"+nameId+"-title'><h4 class='panel-title'><div role='button' data-toggle='collapse' data-parent='#hacked-accordion' data-target='#"+nameId+"-content' aria-expanded='false'><div class='hacked-title'>"+title+"<span> abrir </span></div><div class='hacked-subtitle'> "+subtitle+" <span style='font-size:12px'>("+hack_date+")</span> </div></div></h4></div><div id='"+nameId+"-content' class='panel-collapse collapse' role='tabpanel' aria-labelledby='"+nameId+"-title'><div class='panel-body beer' style='margin:0;padding:0'><br><img src='"+image+"' style='width:100%;margin:0;padding:0'></div></div>");	  			
+				  			$(".hacked-accordion").append("<div class='panel-heading beer' role='tab' id='"+nameId+"-title'><h4 class='panel-title'><div role='button' data-toggle='collapse' data-parent='#hacked-accordion' data-target='#"+nameId+"-content' aria-expanded='false'><div class='hacked-title'>"+title+"<span> open </span></div><div class='hacked-subtitle'> "+subtitle+" <span style='font-size:12px'>("+hack_date+")</span> </div></div></h4></div><div id='"+nameId+"-content' class='panel-collapse collapse' role='tabpanel' aria-labelledby='"+nameId+"-title'><div class='panel-body beer' style='margin:0;padding:0'><br><img src='"+image+"' style='width:100%;margin:0;padding:0'></div></div>");	  			
 				  			cont++;
 				  		});			  			
 					}
@@ -2206,7 +2206,7 @@ $(document).ready(function(){
 	{
 		$.ajax({
 			type: "POST",
-			url: "http://pixside.com.br/beerscript-service/register.php", 
+			url: "http://institucional.cervejariapratinha.com.br/beerscript-service/register.php", 
 			data: {
 				action: 'NormalRegister',
 				name: $("#register-name").val(),        			
@@ -2342,7 +2342,7 @@ $(document).ready(function(){
 	{	
 		$.ajax({
 			type: "POST",
-			url: "http://pixside.com.br/beerscript-service/loginFacebook.php", 
+			url: "http://institucional.cervejariapratinha.com.br/beerscript-service/loginFacebook.php", 
 			data: {
 				action: 'LoginFacebook',
 				userName: userFullName,
@@ -2403,7 +2403,7 @@ $(document).ready(function(){
 		$(".load-screen").show(100);
 		$.ajax({
 				type: "POST",
-				url: "http://pixside.com.br/beerscript-service/login.php", 
+				url: "http://institucional.cervejariapratinha.com.br/beerscript-service/login.php", 
 				data: {
 					action: 'LoginWeb',
 					user: $("#login-user").val(),
@@ -2560,7 +2560,7 @@ $(document).ready(function(){
 	{
 		$.ajax({
 			type: "POST",
-			url: "http://pixside.com.br/beerscript-service/updatePhoneCode.php", 
+			url: "http://institucional.cervejariapratinha.com.br/beerscript-service/updatePhoneCode.php", 
 			data: 
 		{
 			action: 'Update',
@@ -2716,7 +2716,7 @@ $(document).ready(function(){
 				options.params = params;
 
 				var ft = new FileTransfer();
-				ft.upload(fileURL, encodeURI("http://pixside.com.br/beerscript-service/uploadHacked.php"), win, fail, options);
+				ft.upload(fileURL, encodeURI("http://institucional.cervejariapratinha.com.br/beerscript-service/uploadHacked.php"), win, fail, options);
 			}
 		},'jpg',100,'screenshotBeerscript');
 	}
@@ -2752,7 +2752,7 @@ $(document).ready(function(){
 		$(".load-screen").show(100);
 		$.ajax({
 				type: "POST",
-				url: "http://pixside.com.br/beerscript-service/checkConquest.php", 
+				url: "http://institucional.cervejariapratinha.com.br/beerscript-service/checkConquest.php", 
 				data: {
 					action: 'Conquistas',
 					id: registerId
@@ -2900,7 +2900,7 @@ $(document).ready(function(){
 
     	$.ajax({
 				type: "POST",
-				url: "http://pixside.com.br/beerscript-service/updateUser.php", 
+				url: "http://institucional.cervejariapratinha.com.br/beerscript-service/updateUser.php", 
 				data: {
 					action: 'UpdateUser',
 					name: $("#perfil-name").val(),
@@ -2963,7 +2963,7 @@ $(document).ready(function(){
 		    	{
 		    		$.ajax({
 					type: "POST",
-					url: "http://pixside.com.br/beerscript-service/changePass.php", 
+					url: "http://institucional.cervejariapratinha.com.br/beerscript-service/changePass.php", 
 					data: {
 						action: 'ChangePass',					
 						email: results.input1				
